@@ -1,4 +1,4 @@
-liblxqt-config-cursor.so lxqt-config-qt5 #MINVER#
+liblxqt-config-cursor.so lxqt-config #MINVER#
  (c++)"applyTheme(XCursorThemeData const&)@Base" 0.8.0
  (c++)"haveXfixes()@Base" 0.8.0
  (c++)"loadCfgFile(QString const&, bool)@Base" 0.8.0
@@ -109,6 +109,7 @@ liblxqt-config-cursor.so lxqt-config-qt5 #MINVER#
  (c++)"QHash<unsigned char, QHashDummyValue>::duplicateNode(QHashData::Node*, void*)@Base" 0.8.0
  (c++)"QHash<unsigned char, QHashDummyValue>::~QHash()@Base" 0.8.0
  (c++)"QList<QItemSelectionRange>::~QList()@Base" 0.8.0
+ (c++)"QList<QString>::setSharable(bool)@Base" 0.9.0
  (c++)"QList<QString>::detach_helper(int)@Base" 0.8.0
  (c++)"QList<QString>::detach_helper_grow(int, int)@Base" 0.8.0
  (c++)"QList<QString>::append(QString const&)@Base" 0.8.0
