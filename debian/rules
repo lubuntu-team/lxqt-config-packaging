@@ -3,8 +3,11 @@
 
 
 %:
-	dh ${@} --buildsystem cmake --parallel --dbg-package=lxqt-config-dbg
+	dh ${@} --buildsystem cmake --parallel
 
 
 override_dh_auto_install:
 	dh_auto_install -- DESTDIR=$(CURDIR)/debian/lxqt-config
+
+override_dh_strip:
+	dh_strip --dbg-package=lxqt-config-dbg
