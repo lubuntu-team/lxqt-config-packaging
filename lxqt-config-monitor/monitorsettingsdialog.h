@@ -22,6 +22,8 @@
 #define MONITORSETTINGSDIALOG_H
 
 #include <QDialog>
+#include <QDialogButtonBox>
+#include <LXQt/Settings>
 #include "ui_mainwindow.h"
 #include "monitor.h"
 #include "monitorwidget.h"
@@ -33,9 +35,26 @@ class MonitorSettingsDialog: public QDialog {
   Q_OBJECT
 
 public:
-  MonitorSettingsDialog(MonitorSettingsBackend* backend);
+  MonitorSettingsDialog(MonitorSettingsBackend* backend, LxQt::Settings *applicationSettings);
   virtual ~MonitorSettingsDialog();
   virtual void accept();
+  QString getHardwareIdentifier();
+
+public Q_SLOTS:
+  // quick options
+  void onUseBoth();
+  void onExternalOnly();
+  void onLaptopOnly();
+  void onExtended();
+  // applying and saving settings
+  void applySettings();
+  void saveSettings();
+
+  // Apply settings from ConfigDialog
+  void processClickedFromDialog(QDialogButtonBox::StandardButton button);
+
+signals:
+  void settingsSaved();
 
 private:
   void setMonitorsConfig();
@@ -48,13 +67,6 @@ private Q_SLOTS:
   // Timeout dialog signals
   void onCancelSettings();
 
-  // quick options
-  void onUseBoth();
-  void onExternalOnly();
-  void onLaptopOnly();
-  void onExtended();
-
-  void onDialogButtonClicked(QAbstractButton* button);
   void onPositionButtonClicked();
   void disablePositionOption(bool disable);
 
@@ -67,6 +79,8 @@ private:
   TimeoutDialog* timeoutDialog;
   QTimer* timer;
   QList<MonitorInfo*> timeoutSettings;
+  LxQt::Settings *applicationSettings;
+  QString hardwareIdentifier;
 };
 
 #endif // MONITORSETTINGSDIALOG_H

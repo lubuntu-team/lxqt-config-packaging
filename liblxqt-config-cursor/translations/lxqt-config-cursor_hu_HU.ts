@@ -4,24 +4,24 @@
 <context>
     <name>SelectWnd</name>
     <message>
-        <location filename="../ui/selectwnd.ui" line="14"/>
+        <location filename="../selectwnd.ui" line="14"/>
         <source>LXQt Mouse Theme Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>LXQt egértéma</translation>
     </message>
     <message>
-        <location filename="../ui/selectwnd.ui" line="20"/>
+        <location filename="../selectwnd.ui" line="20"/>
         <source>Select the cursor theme you want to use (hover preview to test cursor). &lt;b&gt;LXQt session needs restart after this change&lt;/b&gt;:</source>
-        <translation type="unfinished"></translation>
+        <translation>A kívánt kurzortéma (előzetesen látható). &lt;b&gt;Érvénybeléptetéshez az LXQt munkamenet újraindíttandó&lt;/b&gt;:</translation>
     </message>
     <message>
-        <location filename="../ui/selectwnd.ui" line="81"/>
+        <location filename="../selectwnd.ui" line="81"/>
         <source>&amp;Install New Theme...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Új téma telepítése...</translation>
     </message>
     <message>
-        <location filename="../ui/selectwnd.ui" line="88"/>
+        <location filename="../selectwnd.ui" line="88"/>
         <source>&amp;Remove Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Téma kiny&amp;írása</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -30,30 +30,30 @@
     <message>
         <location filename="../selectwnd.cpp" line="208"/>
         <source>XCurTheme error</source>
-        <translation type="unfinished"></translation>
+        <translation>Témahiba</translation>
     </message>
     <message>
         <location filename="../selectwnd.cpp" line="209"/>
         <source>You can&apos;t remove active theme!</source>
-        <translation type="unfinished"></translation>
+        <translation>Az aktuális téma eltávolíthatatlan!</translation>
     </message>
 </context>
 <context>
     <name>WarningLabel</name>
     <message>
-        <location filename="../ui/warninglabel.ui" line="14"/>
+        <location filename="../warninglabel.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Űrlap</translation>
     </message>
     <message>
-        <location filename="../ui/warninglabel.ui" line="44"/>
+        <location filename="../warninglabel.ui" line="44"/>
         <source>LXQt could not find any cursor theme. The default X11 cursor theme will be used instead. LXQt looked in the following directories:</source>
-        <translation type="unfinished"></translation>
+        <translation>Az LXQt nem lelt kurzor témát, az alapértelmezett lesz használva. Ezekben a mappákban kereste:</translation>
     </message>
     <message>
-        <location filename="../ui/warninglabel.ui" line="54"/>
+        <location filename="../warninglabel.ui" line="54"/>
         <source>Show...</source>
-        <translation type="unfinished"></translation>
+        <translation>Mutat...</translation>
     </message>
 </context>
 <context>
@@ -61,12 +61,12 @@
     <message>
         <location filename="../thememodel.cpp" line="61"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Név</translation>
     </message>
     <message>
         <location filename="../thememodel.cpp" line="62"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Leírás</translation>
     </message>
 </context>
 </TS>

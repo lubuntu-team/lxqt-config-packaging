@@ -30,18 +30,23 @@
 #include <QDir>
 #include <QTimer>
 #include <QProgressBar>
+#include <QInputDialog>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonDocument>
 
 #include "monitorwidget.h"
 #include "timeoutdialog.h"
 #include "xrandr.h"
 #include "monitorpicture.h"
 
-MonitorSettingsDialog::MonitorSettingsDialog(MonitorSettingsBackend* backend):
+MonitorSettingsDialog::MonitorSettingsDialog(MonitorSettingsBackend* backend, LxQt::Settings *applicationSettings):
   QDialog(NULL, 0),
   LVDS(NULL) {
   timeoutDialog = NULL;
   timer = NULL;
+  this->applicationSettings = applicationSettings;
   this->backend = backend;
   backend->setParent(this);
   setupUi();
@@ -158,28 +163,26 @@ void MonitorSettingsDialog::onExtended() {
     monitor->chooseMaxResolution();
     monitor->enableMonitor(true);
     monitor->disablePositionOption(false);
-    QSize size = sizeFromString(monitor->ui.resolutionCombo->currentText());
+    QString modeName = monitor->ui.resolutionCombo->currentText();
+    int modeWidth = monitor->monitorInfo->monitorModes[modeName]->width;
     monitor->ui.xPosSpinBox->setValue(virtualWidth);
     monitor->ui.yPosSpinBox->setValue(0);
-    virtualWidth+=size.width();
+    virtualWidth+=modeWidth;
   }
   setMonitorsConfig();
 }
 
 void MonitorSettingsDialog::setupUi() {
   ui.setupUi(this);
-  connect(ui.useBoth, SIGNAL(clicked(bool)), SLOT(onUseBoth()));
-  connect(ui.externalOnly, SIGNAL(clicked(bool)), SLOT(onExternalOnly()));
-  connect(ui.laptopOnly, SIGNAL(clicked(bool)), SLOT(onLaptopOnly()));
-  connect(ui.extended, SIGNAL(clicked(bool)), SLOT(onExtended()));
-  connect(ui.buttonBox, SIGNAL(clicked(QAbstractButton*)), SLOT(onDialogButtonClicked(QAbstractButton*)));
   connect(ui.positionPushButton, SIGNAL(clicked()), SLOT(onPositionButtonClicked()));
 
   // Get monitors information
   QList<MonitorInfo*> monitorsInfo = backend->getMonitorsInfo();
 
   // Search if LVSD monitor is connected
+  hardwareIdentifier = "";
   Q_FOREACH(MonitorInfo * monitorInfo, monitorsInfo) {
+    hardwareIdentifier+=monitorInfo->edid;
     if(! LVDS && (monitorInfo->name.startsWith("LVDS") || monitorInfo->name.startsWith("PANEL"))) {
       MonitorInfo::LVDS_Ok = true;
       break;
@@ -226,14 +229,10 @@ void MonitorSettingsDialog::setupUi() {
 
   // If this is a laptop and there is an external monitor, offer quick options
   if(monitors.length() == 2) {
-    ui.tabWidget->setCurrentIndex(0);
     // If there is only two monitors,offer quick options
     if(! LVDS) {
       LVDS = monitors[0];
     }
-  }
-  else {
-    ui.tabWidget->removeTab(0);
   }
 
   adjustSize();
@@ -256,11 +255,11 @@ void MonitorSettingsDialog::onPositionButtonClicked() {
   delete dialog;
 }
 
-void MonitorSettingsDialog::onDialogButtonClicked(QAbstractButton* button) {
-  if(ui.buttonBox->standardButton(button) == QDialogButtonBox::Apply) {
+void MonitorSettingsDialog::applySettings() {
     setMonitorsConfig();
-  }
-  else if(ui.buttonBox->standardButton(button) == QDialogButtonBox::Save) {
+}
+
+void MonitorSettingsDialog::saveSettings() {
     // Save config and exit
     QMessageBox msgBox;
     msgBox.setText(tr("Do you want to save changes?"));
@@ -270,6 +269,12 @@ void MonitorSettingsDialog::onDialogButtonClicked(QAbstractButton* button) {
     int ret = msgBox.exec();
     if( ret == QMessageBox::Cancel )
       return;
+    bool ok;
+    QString configName = QInputDialog::getText(this, tr("Name"),
+                                         tr("Name:"), QLineEdit::Normal,
+                                         tr("Actual"), &ok);
+    if (!ok || configName.isEmpty())
+        return;
     QList<MonitorSettings*> settings = getMonitorsSettings();
     QString cmd = backend->getCommand(settings);
     Q_FOREACH(MonitorSettings * s, settings) {
@@ -282,13 +287,13 @@ void MonitorSettingsDialog::onDialogButtonClicked(QAbstractButton* button) {
                               "Exec=%1\n"
                               "OnlyShowIn=LXQt\n").arg(cmd);
     // Check if ~/.config/autostart/ exists
-    bool ok = true;
+    ok = true;
     QFileInfo fileInfo(QDir::homePath() + "/.config/autostart/");
     if( ! fileInfo.exists() )
       ok = QDir::root().mkpath(QDir::homePath() + "/.config/autostart/");
     QFile file(QDir::homePath() + "/.config/autostart/lxqt-config-monitor-autostart.desktop");
     if(ok)
-            ok = file.open(QIODevice::WriteOnly | QIODevice::Text); 
+            ok = file.open(QIODevice::WriteOnly | QIODevice::Text);
     if(!ok) {
       QMessageBox::critical(this, tr("Error"), tr("Config can not be saved"));
       return;
@@ -297,7 +302,30 @@ void MonitorSettingsDialog::onDialogButtonClicked(QAbstractButton* button) {
     out << desktop;
     out.flush();
     file.close();
-    //QDialog::accept();
-  }
+
+    // Save config in applicationSettings
+    applicationSettings->beginGroup("configMonitor");
+    QJsonArray  savedConfigs = QJsonDocument::fromJson(applicationSettings->value("saved").toByteArray()).array();
+    QJsonObject monitorConfig;
+    monitorConfig["hardwareIdentifier"] = hardwareIdentifier;
+    monitorConfig["command"] = cmd;
+    monitorConfig["name"] = configName;
+    savedConfigs.append(monitorConfig);
+    applicationSettings->setValue("saved", QVariant(QJsonDocument(savedConfigs).toJson()));
+    applicationSettings->endGroup();
+    emit(settingsSaved());
 }
 
+#include <QDialogButtonBox>
+
+void MonitorSettingsDialog::processClickedFromDialog(QDialogButtonBox::StandardButton button)
+{
+    qDebug() << "[MonitorSettingsDialog::processClickedFromDialog]";
+    if(button == QDialogButtonBox::Apply)
+	setMonitorsConfig();
+}
+
+QString MonitorSettingsDialog::getHardwareIdentifier()
+{
+  return hardwareIdentifier;
+}

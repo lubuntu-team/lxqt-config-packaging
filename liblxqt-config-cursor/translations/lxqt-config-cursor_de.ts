@@ -1,36 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de">
+<TS version="2.1" language="de">
 <context>
     <name>SelectWnd</name>
     <message>
-        <location filename="../ui/selectwnd.ui" line="14"/>
+        <location filename="../selectwnd.ui" line="14"/>
         <source>LXQt Mouse Theme Configuration</source>
         <translation>LXQt Mauszeigerdesign Konfiguration</translation>
     </message>
     <message>
-        <location filename="../ui/selectwnd.ui" line="20"/>
+        <location filename="../selectwnd.ui" line="20"/>
         <source>Select the cursor theme you want to use (hover preview to test cursor). &lt;b&gt;LXQt session needs restart after this change&lt;/b&gt;:</source>
         <translation>Wähle das gewünschte Mauszeigerdesign aus (zum Test Maus über Vorschau bewegen)
 &lt;b&gt;Die LXQt-Sitzung muss nach dieser Veränderung neu gestartet werden&lt;/b&gt;:</translation>
     </message>
     <message>
-        <location filename="../ui/selectwnd.ui" line="81"/>
+        <location filename="../selectwnd.ui" line="81"/>
         <source>&amp;Install New Theme...</source>
         <translation>&amp;Neues Design installieren...</translation>
     </message>
     <message>
-        <source>&amp;Set Theme</source>
-        <translation>&amp;Design festlegen</translation>
-    </message>
-    <message>
-        <location filename="../ui/selectwnd.ui" line="88"/>
+        <location filename="../selectwnd.ui" line="88"/>
         <source>&amp;Remove Theme</source>
         <translation>D&amp;esign entfernen</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation>&amp;Schließen</translation>
     </message>
     <message>
         <location filename="../selectwnd.cpp" line="208"/>
@@ -46,17 +38,17 @@
 <context>
     <name>WarningLabel</name>
     <message>
-        <location filename="../ui/warninglabel.ui" line="14"/>
+        <location filename="../warninglabel.ui" line="14"/>
         <source>Form</source>
         <translation>Dialogfenster</translation>
     </message>
     <message>
-        <location filename="../ui/warninglabel.ui" line="44"/>
+        <location filename="../warninglabel.ui" line="44"/>
         <source>LXQt could not find any cursor theme. The default X11 cursor theme will be used instead. LXQt looked in the following directories:</source>
         <translation>LXQt konnte kein Mauszeigerdesign finden. Stattdessen wird das Default-Mauszeigerdesign von X11 verwendet. LXQt suchte in folgenden Verzeichnissen:</translation>
     </message>
     <message>
-        <location filename="../ui/warninglabel.ui" line="54"/>
+        <location filename="../warninglabel.ui" line="54"/>
         <source>Show...</source>
         <translation>Anzeigen...</translation>
     </message>

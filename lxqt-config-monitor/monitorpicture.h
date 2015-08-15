@@ -24,6 +24,8 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include <QDialog>
+#include <QGraphicsSvgItem>
+#include <QSvgRenderer>
 #include "monitor.h"
 #include "ui_monitorpicture.h"
 #include "monitorwidget.h"
@@ -50,11 +52,12 @@ public:
   MonitorPicture(QGraphicsItem * parent, MonitorWidget *monitorWidget, MonitorPictureDialog *monitorPictureDialog);
   void setMonitorPosition(int x, int y);
   void adjustNameSize();
- 
+
   MonitorWidget *monitorWidget;
   int originX, originY;
 private:
   QGraphicsTextItem *textItem;
+  QGraphicsSvgItem *svgItem;
   MonitorPictureDialog *monitorPictureDialog;
 
 protected:
