@@ -1,0 +1,13 @@
+Description: Install private .so file into proper directory.
+Author: Andrew Lee (李健秋) <ajqlee@debian.org>
+--- lxqt-config-0.9.0+20150806.orig/liblxqt-config-cursor/CMakeLists.txt
++++ lxqt-config-0.9.0+20150806/liblxqt-config-cursor/CMakeLists.txt
+@@ -80,7 +80,7 @@ target_link_libraries(lxqt-config-cursor
+ 
+ install(TARGETS
+     lxqt-config-cursor
+-    DESTINATION "${CMAKE_INSTALL_LIBDIR}"
++    DESTINATION "${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME}"
+     COMPONENT Runtime
+ )
+ install(FILES
