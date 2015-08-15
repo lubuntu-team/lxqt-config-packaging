@@ -2,9 +2,6 @@ project(lxqt-config)
 add_subdirectory(qcategorizedview)
 
 include_directories (
-    ${CMAKE_CURRENT_BINARY_DIR}
-    ${LXQT_INCLUDE_DIRS}
-    ${QTXDG_INCLUDE_DIRS}
     "${CMAKE_CURRENT_SOURCE_DIR}/qcategorizedview"
 )
 
@@ -22,8 +19,6 @@ set(lxqt-config_MOCS
 set(lxqt-config_UIS
     mainwindow.ui
 )
-
-qt5_wrap_ui(UIS ${lxqt-config_UIS})
 
 # Translations **********************************
 lxqt_translate_ts(QM_FILES
@@ -44,8 +39,6 @@ lxqt_translate_desktop(DESKTOP_FILES SOURCES lxqt-config.desktop.in)
 
 add_executable(lxqt-config
     ${lxqt-config_SRCS}
-    ${UIS}
-    ${MOCS}
     ${DESKTOP_FILES}
     ${QM_FILES}
     ${QM_LOADER}
@@ -55,13 +48,24 @@ target_link_libraries(lxqt-config
     KF5::WindowSystem
     Qt5::Widgets
     Qt5::Xml
-    ${QTXDG_LIBRARIES}
-    ${LXQT_LIBRARIES}
+    lxqt
 )
+
 # helper static lib
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/qcategorizedview)
 target_link_libraries(lxqt-config qcategorizedview)
 
-install(TARGETS lxqt-config RUNTIME DESTINATION bin)
-install(FILES ${DESKTOP_FILES} DESTINATION "${CMAKE_INSTALL_PREFIX}/share/applications")
-install(FILES lxqt-config.menu DESTINATION /etc/xdg/menus/)
+install(TARGETS
+    lxqt-config
+    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+    COMPONENT Runtime
+)
+install(FILES
+    ${DESKTOP_FILES}
+    DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications"
+    COMPONENT Runtime
+)
+install(FILES lxqt-config.menu
+    DESTINATION "${LXQT_ETC_XDG_DIR}/menus"
+    COMPONENT Runtime
+)

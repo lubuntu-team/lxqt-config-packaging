@@ -5,6 +5,7 @@
 #include <QPen>
 #include <QDebug>
 #include <QVector2D>
+#include "configure.h"
 
 
 MonitorPictureDialog::MonitorPictureDialog(QWidget * parent, Qt::WindowFlags f): QDialog(parent,f) {
@@ -50,31 +51,55 @@ void MonitorPictureDialog::updateMonitorWidgets(QString primaryMonitor) {
 }
 
 
+
 MonitorPicture::MonitorPicture(QGraphicsItem * parent, MonitorWidget *monitorWidget, MonitorPictureDialog *monitorPictureDialog):QGraphicsRectItem(parent)
 {
   this->monitorWidget = monitorWidget;
   this->monitorPictureDialog = monitorPictureDialog;
-  QSize currentSize = sizeFromString(monitorWidget->ui.resolutionCombo->currentText());
+  //QString modeName = monitorWidget->ui.resolutionCombo->currentText();
+  //int  currentSizeWidth = monitorWidget->monitorInfo->monitorModes[modeName]->width;
+  //int  currentSizeHeight = monitorWidget->monitorInfo->monitorModes[modeName]->height;
+  MonitorMode *monitorModeInfo = monitorWidget->ui.resolutionCombo->currentData().value<MonitorMode*>();
+  int  currentSizeWidth = monitorModeInfo->width;
+  int  currentSizeHeight = monitorModeInfo->height;
   int x = monitorWidget->ui.xPosSpinBox->value();
   int y = monitorWidget->ui.yPosSpinBox->value();
   setAcceptedMouseButtons(Qt::LeftButton);
   setFlags(QGraphicsItem::ItemIsMovable | QGraphicsItem::ItemSendsGeometryChanges);
-  setRect(x, y, currentSize.width(), currentSize.height());
+  setRect(x, y, currentSizeWidth, currentSizeHeight);
   originX = x;
   originY = y;
-  setPen(QPen(Qt::black, 20));
+
+
+  QSvgRenderer *renderer = new QSvgRenderer(QLatin1String(ICON_PATH "monitor.svg"));
+  svgItem = new QGraphicsSvgItem();
+  svgItem->setSharedRenderer(renderer);
+  svgItem->setX(x);
+  svgItem->setY(y);
+  svgItem->setOpacity(0.7);
+  svgItem->setParentItem(this);
+
+
   textItem = new QGraphicsTextItem(monitorWidget->monitorInfo->name, this);
+  textItem->setDefaultTextColor(Qt::white);
   textItem->setX(x);
   textItem->setY(y);
   textItem->setParentItem(this);
-  
+  setPen(QPen(Qt::black, 20));
+
   adjustNameSize();
 }
 
 
 void MonitorPicture::adjustNameSize() {
-  qreal fontWidth = QFontMetrics(textItem->font()).width(monitorWidget->monitorInfo->name+"  "); 
+  prepareGeometryChange();
+  qreal fontWidth = QFontMetrics(textItem->font()).width(monitorWidget->monitorInfo->name+"  ");
   textItem->setScale((qreal)this->rect().width()/fontWidth);
+  QTransform transform;
+  qreal width = qAbs(this->rect().width()/svgItem->boundingRect().width());
+  qreal height = qAbs(this->rect().height()/svgItem->boundingRect().height());
+  transform.scale(width, height);
+  svgItem->setTransform(transform);
 }
 
 
@@ -105,7 +130,7 @@ void MonitorPicture::mouseReleaseEvent(QGraphicsSceneMouseEvent * event)
 
 //////////////////////////////////////////////////////////////////////////////////
 // Move picture to nearest picture procedure.
-// Read magnetic_attraction.html for more info about the algorithm used. 
+// Read magnetic_attraction.html for more info about the algorithm used.
 //////////////////////////////////////////////////////////////////////////////////
 
 struct Parameters {
@@ -198,14 +223,14 @@ static Result_moveMonitorPictureToNearest compareTwoMonitors(MonitorPicture* mon
   if(params.t1>=0.0 && params.t1<=1.0 && params.t2>=0.0 && params.t2<=1.0) {
     if(t2<0) {t2 = params.t1; P2 = params.cutPoint;}
   }
-  
+
   if(t1>t2) { //Monitor outside
     result.vector = P1-P2;
     result.ok = false;
   } else {
     result.ok = true;
   }
-  
+
   return result;
 }
 

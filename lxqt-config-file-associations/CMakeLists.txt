@@ -1,9 +1,5 @@
 project(lxqt-config-file-associations)
 
-include_directories(
-    "${CMAKE_CURRENT_BINARY_DIR}"
-)
-
 set(H_FILES
     mimetypedata.h
     mimetypeviewer.h
@@ -31,8 +27,7 @@ set(UI_FILES
 set(QRC_FILES "")
 
 set(LIBRARIES
-    ${QTXDG_LIBRARIES}
-    ${LXQT_LIBRARIES}
+    lxqt
 )
 
 # Translations **********************************
@@ -52,17 +47,12 @@ lxqt_translate_desktop(DESKTOP_FILES SOURCES ${PROJECT_NAME}.desktop.in)
 
 #************************************************
 
-qt5_wrap_ui(UI_HEADERS ${UI_FILES})
-qt5_add_resources(QRC_SOURCES ${QRC_FILES})
-
 add_executable(${PROJECT_NAME}
     ${CPP_FILES}
-    ${UI_FILES}
     ${RESOURCES}
-    ${QRC_SOURCES}
+    ${QRC_FILES}
     ${QM_FILES}
     ${QM_LOADER}
-    ${MOC_SOURCES}
     ${DESKTOP_FILES}
 )
 
@@ -75,5 +65,13 @@ target_link_libraries(${PROJECT_NAME}
     ${LIBRARIES}
 )
 
-install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
-install(FILES ${DESKTOP_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications)
+install(TARGETS
+    ${PROJECT_NAME}
+    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+    COMPONENT Runtime
+)
+install(FILES
+    ${DESKTOP_FILES}
+    DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications"
+    COMPONENT Runtime
+)

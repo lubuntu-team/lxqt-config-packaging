@@ -1,15 +1,10 @@
 project(lxqt-config-input)
 find_package(X11 REQUIRED)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-exceptions")
-
-
 include_directories(
     ${X11_INCLUDE_DIR}
-    ${LXQT_INCLUDE_DIRS}
-    ${CMAKE_CURRENT_BINARY_DIR}
-    "${CMAKE_SOURCE_DIR}/liblxqt-config-cursor"
-    "${CMAKE_BINARY_DIR}/liblxqt-config-cursor"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../liblxqt-config-cursor"
+    "${CMAKE_CURRENT_BINARY_DIR}/../liblxqt-config-cursor"
 )
 
 set(lxqt-config-input_HDRS
@@ -35,8 +30,6 @@ set(lxqt-config-input_UIS
     selectkeyboardlayoutdialog.ui
 )
 
-qt5_wrap_ui(lxqt-config-input_UI_H ${lxqt-config-input_UIS})
-
 # Translations **********************************
 lxqt_translate_ts(QM_FILES
     UPDATE_TRANSLATIONS
@@ -55,26 +48,31 @@ lxqt_translate_desktop(DESKTOP_FILES SOURCES ${PROJECT_NAME}.desktop.in)
 #************************************************
 
 add_definitions(
-  -DPACKAGE_DATA_DIR="${CMAKE_INSTALL_PREFIX}/share/lxqt-config-input"
+  -DPACKAGE_DATA_DIR="${CMAKE_INSTALL_FULL_DATAROOTDIR}/lxqt-config-input"
 )
 
 add_executable(lxqt-config-input
     ${lxqt-config-input_SRCS}
-    ${lxqt-config-input_UI_H}
-    ${lxqt-config-input_MOCS}
     ${DESKTOP_FILES}
     ${QM_FILES}
     ${QM_LOADER}
 )
 
 target_link_libraries(lxqt-config-input
-    KF5::WindowSystem
     Qt5::Widgets
     Qt5::X11Extras
     ${X11_LIBRARIES}
-    ${LXQT_LIBRARIES}
+    lxqt
     lxqt-config-cursor
 )
 
-install(TARGETS lxqt-config-input RUNTIME DESTINATION bin)
-install(FILES ${DESKTOP_FILES} DESTINATION "${CMAKE_INSTALL_PREFIX}/share/applications")
+install(TARGETS
+    lxqt-config-input
+    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+    COMPONENT Runtime
+)
+install(FILES
+    ${DESKTOP_FILES}
+    DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications"
+    COMPONENT Runtime
+)
