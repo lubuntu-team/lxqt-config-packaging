@@ -50,22 +50,3 @@ Description: LXQt system settings center (debug)
  The LXQt system settings center
  .
  This package contain the debugging symbols for LXQt config ui.
-
-# ---- to be removed in 2016 ----
-
-Package: lxqt-config-qt5
-Depends: lxqt-config, ${misc:Depends}
-Priority: extra
-Section: oldlibs
-Architecture: all
-Description: lxqt-config transitional package
- Empty package to facilitate upgrades, can be safely removed.
-
-Package: lxqt-config-qt5-dbg 
-Depends: lxqt-config-dbg, ${misc:Depends}
-Priority: extra
-Section: oldlibs
-Architecture: all
-Description: lxqt-config transitional package (dbg)
- Empty package to facilitate upgrades, can be safely removed.
-
