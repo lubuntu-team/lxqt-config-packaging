@@ -1,3 +1,12 @@
+lxqt-config (0.9.0+20150806-2) UNRELEASED; urgency=medium
+
+  * removed breaks and replaces
+  * fixes in copyright
+  * removed debian/symbols
+  * add link --as-needed to rules to avoid warnings at build time
+
+ -- Alf Gaida <agaida@siduction.org>  Mon, 17 Aug 2015 21:32:53 +0200
+
 lxqt-config (0.9.0+20150806-1) unstable; urgency=medium
 
   [ Alf Gaida ]
