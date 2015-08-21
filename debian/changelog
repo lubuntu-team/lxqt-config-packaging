@@ -1,12 +1,3 @@
-lxqt-config (0.9.0+20150806-2) UNRELEASED; urgency=medium
-
-  * removed breaks and replaces
-  * fixes in copyright
-  * removed debian/symbols
-  * add link --as-needed to rules to avoid warnings at build time
-
- -- Alf Gaida <agaida@siduction.org>  Mon, 17 Aug 2015 21:32:53 +0200
-
 lxqt-config (0.9.0+20150806-1) unstable; urgency=medium
 
   [ Alf Gaida ]
@@ -23,6 +14,13 @@ lxqt-config (0.9.0+20150806-1) unstable; urgency=medium
   * new release 0.9.0 drop not needed patches cleanup debian $foo add
     source/options.
   * Some cleanup in debian $foo.
+  * removed breaks and replaces.
+  * fixes in copyright.
+  * removed debian/symbols.
+  * add link --as-needed to rules to avoid warnings at build time.
+  * licenses hopefully fixed.
+  * breaks and replaces removed.
+  * rules improved, link --as-needed not used symbols removed.
 
   [ Andrew Lee (李健秋) ]
   * Merging upstream version 0.9.0+20150806.
@@ -35,4 +33,9 @@ lxqt-config (0.9.0+20150806-1) unstable; urgency=medium
   * No need to run ld_config as .so file installed into private lib path.
   * Drop shlib-without-versioned-soname relared overrides.
 
- -- Andrew Lee (李健秋) <ajqlee@debian.org>  Sat, 15 Aug 2015 18:38:11 +0800
+  [ Yukiharu YABUKI ]
+  * Added to ignore *~ files.
+  * Added a uploader.
+  * Added README.source -- mention for License.
+
+ -- Yukiharu YABUKI <yyabuki@debian.org>  Fri, 21 Aug 2015 19:40:47 +0900
