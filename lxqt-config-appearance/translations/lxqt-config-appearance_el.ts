@@ -1,129 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.1" language="el">
 <context>
     <name>FontsConfig</name>
     <message>
         <location filename="../fontsconfig.ui" line="23"/>
         <source>Font</source>
-        <translation>Caratteri</translation>
+        <translation>Γραμματοσειρά</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="30"/>
         <source>Default font for user interface</source>
-        <translation>Carattere generale</translation>
+        <translation>Εξ ορισμού γραμματοσειρά του περιβάλλοντος χρήστη</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="36"/>
         <source>Font name:</source>
-        <translation>Carattere:</translation>
+        <translation>Όνομα γραμματοσειράς:</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="46"/>
         <source>Style:</source>
-        <translation>Stile:</translation>
+        <translation>Ύφος:</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="53"/>
         <source>Point size:</source>
-        <translation>Dimensione:</translation>
+        <translation>Μέγεθος σημείου:</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="68"/>
         <source>Normal</source>
-        <translation>Normale</translation>
+        <translation>Κανονικό</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="73"/>
         <source>Bold</source>
-        <translation>Grassetto</translation>
+        <translation>Έντονα</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="78"/>
         <source>Italic</source>
-        <translation>Corsivo</translation>
+        <translation>Πλάγια</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="83"/>
         <source>Bold Italic</source>
-        <translation>Grassetto corsivo</translation>
+        <translation>Έντονα πλάγια</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="94"/>
         <source>The following settings only affect newly started applications</source>
-        <translation>Le impostazioni riguardano solo le applicazioni avviate nuovamente</translation>
+        <translation>Οι παρακάτω ρυθμίσεις επηρεάζουν μόνο τις εφεξής εφαρμογές</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="100"/>
         <source>Use antialias fonts</source>
-        <translation>Utilizza anti-aliasing per i caratteri</translation>
+        <translation>Χρήση της εξομάλυνσης γραμματοσειρών</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="107"/>
         <source>Font hinting style:</source>
-        <translation>Stile di hinting</translation>
+        <translation>Ύφος υπόδειξης των γραμματοσειρών:</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="118"/>
         <location filename="../fontsconfig.ui" line="183"/>
         <source>None</source>
-        <translation>Nessuno</translation>
+        <translation>Κανένα</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="123"/>
         <source>Slight</source>
-        <translation>Leggero</translation>
+        <translation>Ελαφρύ</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="128"/>
         <source>Medium</source>
-        <translation>Medio</translation>
+        <translation>Μεσαίο</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="133"/>
         <source>Full</source>
-        <translation>Forte</translation>
+        <translation>Πλήρες</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="141"/>
         <source>Font hinting</source>
-        <translation>Hinting caratteri</translation>
+        <translation>Υπόδειξη γραμματοσειρών</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="148"/>
         <source>Resolution (DPI):</source>
-        <translation>Resoluzione (DPI):</translation>
+        <translation>Ανάλυση (DPI):</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="155"/>
         <source>Autohint</source>
-        <translation>Hinting automatico</translation>
+        <translation>Αυτόματη υπόδειξη (autohint)</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="172"/>
         <source>Subpixel antialiasing:</source>
-        <translatorcomment>no idea how to translate that</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>Εξομάλυνση υποεικονοστοιχείων:</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="188"/>
         <source>RGB</source>
-        <translation></translation>
+        <translation>RGB</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="193"/>
         <source>BGR</source>
-        <translation></translation>
+        <translation>BGR</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="198"/>
         <source>VRGB</source>
-        <translation></translation>
+        <translation>VRGB</translation>
     </message>
     <message>
         <location filename="../fontsconfig.ui" line="203"/>
         <source>VBGR</source>
-        <translation></translation>
+        <translation>VBGR</translation>
     </message>
 </context>
 <context>
@@ -131,20 +130,27 @@
     <message>
         <location filename="../iconthemeconfig.ui" line="14"/>
         <source>LXQt Appearance Configuration</source>
-        <translation>Centro di Configurazione LXQt</translation>
+        <translation>Διαμόρφωση της εμφάνισης του LXQt</translation>
     </message>
     <message>
         <location filename="../iconthemeconfig.ui" line="26"/>
         <source>Icons Theme</source>
-        <translation>Temi delle icone</translation>
+        <translation>Θέμα εικονιδίων</translation>
     </message>
 </context>
 <context>
-    <name>LxQtThemeConfig</name>
+    <name>LXQtThemeConfig</name>
+    <message>
+        <source>LXQt Theme</source>
+        <translation>Θέμα του LXQt</translation>
+    </message>
+</context>
+<context>
+    <name>LXQtThemeConfig</name>
     <message>
         <location filename="../lxqtthemeconfig.ui" line="23"/>
         <source>LXQt Theme</source>
-        <translation>Tema di LXQt</translation>
+        <translation>Θέμα του LXQt</translation>
     </message>
 </context>
 <context>
@@ -152,32 +158,32 @@
     <message>
         <location filename="../main.cpp" line="45"/>
         <source>LXQt Appearance Configuration</source>
-        <translation>Centro di Configurazione LXQt</translation>
+        <translation>Διαμόρφωση της εμφάνισης του LXQt</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="51"/>
         <source>Widget Style</source>
-        <translation>Stile degli elementi</translation>
+        <translation>Στιλ συστατικού</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>Icons Theme</source>
-        <translation>Tema delle icone</translation>
+        <translation>Θέμα εικονιδίων</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="59"/>
         <source>LXQt Theme</source>
-        <translation>Tema di LXQt</translation>
+        <translation>Θέμα LXQt</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>Font</source>
-        <translation>Caratteri</translation>
+        <translation>Γραμματοσειρά</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="68"/>
         <source>Cursor</source>
-        <translation>Cursore</translation>
+        <translation>Δρομέας</translation>
     </message>
 </context>
 <context>
@@ -185,42 +191,42 @@
     <message>
         <location filename="../styleconfig.ui" line="23"/>
         <source>Widget Style</source>
-        <translation>Stile degli elementi</translation>
+        <translation>Στιλ συστατικού</translation>
     </message>
     <message>
         <location filename="../styleconfig.ui" line="54"/>
         <source>Toolbar button style:</source>
-        <translation>Stile della barra delle applicazioni:</translation>
+        <translation>Ύφος των κουμπιών της γραμμής εργαλείων:</translation>
     </message>
     <message>
         <location filename="../styleconfig.ui" line="62"/>
         <source>Only display the icon</source>
-        <translation>Mostra solo icone</translation>
+        <translation>Εμφάνιση μόνον του εικονιδίου</translation>
     </message>
     <message>
         <location filename="../styleconfig.ui" line="67"/>
         <source>Only display the text</source>
-        <translation>Mostra solo testo</translation>
+        <translation>Εμφάνιση μόνον του κειμένου</translation>
     </message>
     <message>
         <location filename="../styleconfig.ui" line="72"/>
         <source>The text appears beside the icon</source>
-        <translation>Testo accanto le icone</translation>
+        <translation>Το κείμενο εμφανίζεται δίπλα από το εικονίδιο</translation>
     </message>
     <message>
         <location filename="../styleconfig.ui" line="77"/>
         <source>The text appears under the icon</source>
-        <translation>Testo sotto le icone</translation>
+        <translation>Το κείμενο εμφανίζεται κάτω από το εικονίδιο</translation>
     </message>
     <message>
         <location filename="../styleconfig.ui" line="82"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Εξ ορισμού</translation>
     </message>
     <message>
         <location filename="../styleconfig.ui" line="90"/>
         <source>Activate item on single click</source>
-        <translation>Attiva elementi con clic singolo</translation>
+        <translation>Ενεργοποίηση των αντικειμένων με μονό κλικ</translation>
     </message>
 </context>
 </TS>
