@@ -6,8 +6,9 @@ lxqt-config (0.9.0+20150829-1) unstable; urgency=medium
   * Fixed and sorted copyright
   * cme fix dpkg-control
   * Fixed spelling in lintian-overrides
+  * Added upstream signing key and use it in watch file
 
- -- Alf Gaida <agaida@siduction.org>  Wed, 02 Sep 2015 19:10:19 +0200
+ -- Alf Gaida <agaida@siduction.org>  Wed, 02 Sep 2015 20:00:35 +0200
 
 lxqt-config (0.9.0+20150806-1) unstable; urgency=medium
 
