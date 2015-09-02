@@ -1,9 +1,13 @@
-lxqt-config (0.9.0+20150806-2) UNRELEASED; urgency=medium
+lxqt-config (0.9.0+20150829-1) unstable; urgency=medium
 
-  * .gitignore fixed 
-  * some whitespaces fixed in copyright
+  * Cherry-picked upstream 0.9.0+20150829
+  * Removed debian/patches, fixed upstream
+  * .gitignore fixed
+  * Fixed and sorted copyright
+  * cme fix dpkg-control
+  * Fixed spelling in lintian-overrides
 
- -- Alf Gaida <agaida@siduction.org>  Sun, 23 Aug 2015 22:28:08 +0200
+ -- Alf Gaida <agaida@siduction.org>  Wed, 02 Sep 2015 19:10:19 +0200
 
 lxqt-config (0.9.0+20150806-1) unstable; urgency=medium
 
