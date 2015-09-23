@@ -1,38 +1,38 @@
-lxqt-config (0.9.0+20150829-1) unstable; urgency=medium
+lxqt-config (0.9.0+20150923-1) experimental; urgency=medium
 
-  * Cherry-picked upstream 0.9.0+20150829
+  * Cherry-picked upstream versuib 0.9.0+20150923
   * Removed debian/patches, fixed upstream
-  * .gitignore fixed
+  * Fixed .gitignore
   * Fixed and sorted copyright
-  * cme fix dpkg-control
+  * Beautifyed dpkg-control
   * Fixed spelling in lintian-overrides
   * Added upstream signing key and use it in watch file
+  * Switched to experimental because of LXQt namespace change
+  * Added minimum version for liblxqt0-dev (>= 0.9.0+20150911)
 
- -- Alf Gaida <agaida@siduction.org>  Wed, 02 Sep 2015 20:00:35 +0200
+ -- Alf Gaida <agaida@siduction.org>  Thu, 24 Sep 2015 00:56:46 +0200
 
 lxqt-config (0.9.0+20150806-1) unstable; urgency=medium
 
   [ Alf Gaida ]
   * Initial release. (Closes: #747597)
-  * added watch file.
+  * Added watch file.
   * Imported Upstream version 0.8.0.
-  * bump standards to 3.9.6.
-  * drop build dependency libegl1-mesa-dev, bug in Qt 5.3.0 is fixed.
+  * Bump standards to 3.9.6.
+  * Drop build dependency libegl1-mesa-dev, bug in Qt 5.3.0 is fixed.
   * Min Qt version 5.3.2.
   * Min liblxqt-qt5-0-dev version 0.8.0.
-  * mangled symbols added.
-  * lintian-overrides added.
-  * patch some desktop files.
-  * new release 0.9.0 drop not needed patches cleanup debian $foo add
+  * Mangled symbols added.
+  * Added intian-overrides.
+  * Patch some desktop files.
+  * New release 0.9.0 drop not needed patches cleanup debian $foo add
     source/options.
   * Some cleanup in debian $foo.
-  * removed breaks and replaces.
-  * fixes in copyright.
-  * removed debian/symbols.
-  * add link --as-needed to rules to avoid warnings at build time.
-  * licenses hopefully fixed.
-  * breaks and replaces removed.
-  * rules improved, link --as-needed not used symbols removed.
+  * Removed breaks and replaces.
+  * Fixes in copyright.
+  * Removed debian/symbols.
+  * Added link --as-needed to rules to avoid warnings at build time.
+  * Fixed licenses.
 
   [ Andrew Lee (李健秋) ]
   * Merging upstream version 0.9.0+20150806.
