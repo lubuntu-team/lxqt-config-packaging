@@ -1,6 +1,6 @@
-lxqt-config (0.9.0+20150923-1) experimental; urgency=medium
+lxqt-config (0.9.0+20151007-1) experimental; urgency=medium
 
-  * Cherry-picked upstream versuib 0.9.0+20150923
+  * Cherry-picked upstream version 0.9.0+20151007.
   * Removed debian/patches, fixed upstream
   * Fixed .gitignore
   * Fixed and sorted copyright
@@ -10,7 +10,7 @@ lxqt-config (0.9.0+20150923-1) experimental; urgency=medium
   * Switched to experimental because of LXQt namespace change
   * Added minimum version for liblxqt0-dev (>= 0.9.0+20150911)
 
- -- Alf Gaida <agaida@siduction.org>  Thu, 24 Sep 2015 00:56:46 +0200
+ -- Alf Gaida <agaida@siduction.org>  Sat, 24 Oct 2015 00:12:25 +0200
 
 lxqt-config (0.9.0+20150806-1) unstable; urgency=medium
 
