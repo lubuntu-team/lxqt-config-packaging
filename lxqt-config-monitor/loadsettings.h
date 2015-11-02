@@ -16,40 +16,27 @@
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
+#ifndef __LOADSETTINGS_H__
+#define __LOADSETTINGS_H__
 
-#ifndef _SAVESETTINGS_H_
-#define _SAVESETTINGS_H_
 
-#include "ui_savesettings.h"
-#include <LXQt/Settings>
+#include <KScreen/GetConfigOperation>
+#include <KScreen/SetConfigOperation>
 
-// Monitor info
-class SaveSettings : public QDialog {
-  Q_OBJECT
+class LoadSettings : public QObject
+{
+    Q_OBJECT
 
 public:
-  SaveSettings(LXQt::Settings*applicationSettings, QWidget* parent = 0);
+    LoadSettings(QObject *parent = 0);
 
-  Ui::SaveSettings ui;
-
-public slots:
-  /*! Load settings to QListWidgets.
-      eids is hardware code to detect hardware compatible settings.
-   */
-  void loadSettings();
-
-  void setHardwareIdentifier(QString hardwareIdentifier);
-
-  void setSavedSettings(QListWidgetItem * item);
-
-  void onDeleteItem();
-
-  void onRenameItem();
+private Q_SLOTS:
+    void loadConfiguration(KScreen::ConfigPtr config);
 
 private:
-  LXQt::Settings*applicationSettings;
-  QString hardwareIdentifier;
 
+    // Configutarions
+    KScreen::ConfigPtr mConfig;
 };
 
-#endif // _SAVESETTINGS_H_
+#endif // __LOADSETTINGS_H__

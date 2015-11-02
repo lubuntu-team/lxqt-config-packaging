@@ -17,70 +17,44 @@
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-
 #ifndef MONITORSETTINGSDIALOG_H
 #define MONITORSETTINGSDIALOG_H
 
+#include "ui_monitorsettingsdialog.h"
+#include "timeoutdialog.h"
+
 #include <QDialog>
-#include <QDialogButtonBox>
-#include <LXQt/Settings>
-#include "ui_mainwindow.h"
-#include "monitor.h"
-#include "monitorwidget.h"
+#include <QTimer>
+#include <KScreen/GetConfigOperation>
+#include <KScreen/SetConfigOperation>
 
-class TimeoutDialog;
-class QTimer;
-
-class MonitorSettingsDialog: public QDialog {
-  Q_OBJECT
+class MonitorSettingsDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  MonitorSettingsDialog(MonitorSettingsBackend* backend, LXQt::Settings *applicationSettings);
-  virtual ~MonitorSettingsDialog();
-  virtual void accept();
-  QString getHardwareIdentifier();
+    MonitorSettingsDialog();
+    virtual ~MonitorSettingsDialog();
 
-public Q_SLOTS:
-  // quick options
-  void onUseBoth();
-  void onExternalOnly();
-  void onLaptopOnly();
-  void onExtended();
-  // applying and saving settings
-  void applySettings();
-  void saveSettings();
-
-  // Apply settings from ConfigDialog
-  void processClickedFromDialog(QDialogButtonBox::StandardButton button);
-
-signals:
-  void settingsSaved();
+    virtual void accept();
+    virtual void reject();
 
 private:
-  void setMonitorsConfig();
-  void setupUi();
-  QList<MonitorSettings*> getMonitorsSettings();
-
-  void deleteTimeoutData(); // Used to delete data from TimeoutDialog
+    void applyConfiguration(bool saveConfigOk);
+    void cancelConfiguration();
 
 private Q_SLOTS:
-  // Timeout dialog signals
-  void onCancelSettings();
-
-  void onPositionButtonClicked();
-  void disablePositionOption(bool disable);
+    void loadConfiguration(KScreen::ConfigPtr config);
+    void showSettingsDialog();
 
 private:
-  Ui::MonitorSettingsDialog ui;
-  QList<MonitorWidget*> monitors;
-  MonitorWidget* LVDS;
-  MonitorSettingsBackend* backend;
-  // TimeoutDialog data
-  TimeoutDialog* timeoutDialog;
-  QTimer* timer;
-  QList<MonitorInfo*> timeoutSettings;
-  LXQt::Settings *applicationSettings;
-  QString hardwareIdentifier;
+    void saveConfiguration(KScreen::ConfigPtr config);
+
+    Ui::MonitorSettingsDialog ui;
+
+    // Configutarions
+    KScreen::ConfigPtr mOldConfig;
+    KScreen::ConfigPtr mConfig;
 };
 
 #endif // MONITORSETTINGSDIALOG_H
