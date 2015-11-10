@@ -4,8 +4,6 @@ lxqt-config: binary-without-manpage usr/bin/lxqt-config-file-associations
 lxqt-config: binary-without-manpage usr/bin/lxqt-config-input
 lxqt-config: binary-without-manpage usr/bin/lxqt-config-locale
 lxqt-config: binary-without-manpage usr/bin/lxqt-config-monitor
-lxqt-config: binary-without-manpage usr/bin/lxqt-config
-
 
 # not a bug, LXQt has not reached free-desktop yet
 lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-appearance.desktop
@@ -14,4 +12,3 @@ lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-con
 lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-locale.desktop
 lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-monitor.desktop
 lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config.desktop
-
