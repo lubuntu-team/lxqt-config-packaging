@@ -1,9 +1,12 @@
-lxqt-config (0.10.0-1) UNRELEASED; urgency=medium
+lxqt-config (0.10.0-1) experimental; urgency=medium
 
   * New upstream release.
   * Update Vcs-* fields.
+  * Remove Debian specific menu in favor of .desktop menu system.
+  * Update copyright.
+  * Install manpage for lxqt-config.
 
- -- ChangZhuo Chen (陳昌倬) <czchen@debian.org>  Tue, 10 Nov 2015 12:26:27 +0800
+ -- ChangZhuo Chen (陳昌倬) <czchen@debian.org>  Tue, 10 Nov 2015 23:19:34 +0800
 
 lxqt-config (0.9.0+20151007-1) experimental; urgency=medium
 
