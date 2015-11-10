@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014  P.L. Lucas <selairi@gmail.com>
+    Copyright (C) 2015  P.L. Lucas <selairi@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,21 +16,26 @@
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifndef _XRANDR_H_
-#define _XRANDR_H_
+#ifndef __SETTINGSDIALOG_H__
+#define __SETTINGSDIALOG_H__
 
-#include "monitor.h"
-#include <QList>
+#include <LXQt/ConfigDialog>
+#include <LXQt/Settings>
 
 
-class XRandRBackend: public MonitorSettingsBackend {
-  Q_OBJECT
+class SettingsDialog : public LXQt::ConfigDialog
+{
+    Q_OBJECT
+
 public:
-  // Execute xrandr command and read its output
-  QList<MonitorInfo*> getMonitorsInfo();
-  // Set changes in xrandr
-  bool setMonitorsSettings(const QList<MonitorSettings*> monitors);
-  QString getCommand(const QList<MonitorSettings*> monitors);
+    SettingsDialog(const QString &title, LXQt::Settings *settings, QWidget *parent = 0);
+
+private Q_SLOTS:
+
+private:
+
+    // Configutarions
 };
 
-#endif
+#endif // __SETTINGSDIALOG_H__
+

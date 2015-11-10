@@ -16,60 +16,56 @@
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-
-#include "main.h"
 #include <LXQt/SingleApplication>
 #include <LXQt/ConfigDialog>
 #include <LXQt/Settings>
 #include <QDebug>
+#include <QProcess>
+#include <QStandardPaths>
+#include <QCommandLineParser>
 #include "monitorsettingsdialog.h"
-#include "quickoptions.h"
-#include "xrandr.h"
-#include "savesettings.h"
+#include <QCoreApplication>
+#include "loadsettings.h"
 
-int main(int argc, char** argv) {
-	LXQt::SingleApplication app(argc, argv);
+static bool loadSettingsOk(int argc, char** argv)
+{
+    for(int i=0; i<argc; i++)
+    {
+        if(QString(argv[i]) == "-l")
+            return true;
+    }
+    return false;
+}
 
-	QByteArray configName = qgetenv("LXQT_SESSION_CONFIG");
-	if(configName.isEmpty())
-		configName = "MonitorSettings";
-	LXQt::Settings settings(configName);
-	LXQt::ConfigDialog dlg(QObject::tr("Monitor Settings"), &settings);
-	dlg.setButtons(QDialogButtonBox::QDialogButtonBox::Apply|QDialogButtonBox::Close);
-	app.setActivationWindow(&dlg);
-	dlg.setWindowIcon(QIcon::fromTheme("preferences-desktop-display"));
+int main(int argc, char** argv)
+{
+    if( loadSettingsOk(argc, argv) )
+    {
+        // If -l option is provided, settings are loaded and app is closed.
+        QCoreApplication app(argc, argv);
+        LoadSettings load;
+        return app.exec();
+    }
 
-	XRandRBackend *xrandr = new XRandRBackend();
-	MonitorSettingsDialog *monitorSettingsDialog = new MonitorSettingsDialog(xrandr, &settings);
-	monitorSettingsDialog->connect(&dlg, SIGNAL(clicked(QDialogButtonBox::StandardButton)), SLOT(processClickedFromDialog(QDialogButtonBox::StandardButton)));
-	{
-		QList<MonitorInfo*> monitorsInfo = xrandr->getMonitorsInfo();
-		// If this is a laptop and there is an external monitor, offer quick options
-		if(monitorsInfo.length() == 2) {
-			QuickOptions *quickOptions = new QuickOptions();
-			monitorSettingsDialog->connect(quickOptions->ui.useBoth, SIGNAL(clicked(bool)), SLOT(onUseBoth()));
-			monitorSettingsDialog->connect(quickOptions->ui.externalOnly, SIGNAL(clicked(bool)), SLOT(onExternalOnly()));
-			monitorSettingsDialog->connect(quickOptions->ui.laptopOnly, SIGNAL(clicked(bool)), SLOT(onLaptopOnly()));
-			monitorSettingsDialog->connect(quickOptions->ui.extended, SIGNAL(clicked(bool)), SLOT(onExtended()));
-			dlg.addPage(quickOptions, QObject::tr("Quick Options"), "format-justify-left");
-		}
-	 }
+    LXQt::SingleApplication app(argc, argv);
 
-	dlg.addPage(monitorSettingsDialog, QObject::tr("Settings"), "preferences-desktop-display");
+    // Command line options
+    QCommandLineParser parser;
+    QCommandLineOption loadOption(QStringList() << "l" << "loadlast",
+            app.tr("Load last settings."));
+    parser.addOption(loadOption);
+    QCommandLineOption helpOption = parser.addHelpOption();
+    parser.addOption(loadOption);
+    parser.addOption(helpOption);
 
-	SaveSettings *saveSettings = new SaveSettings(&settings);
-	saveSettings->setHardwareIdentifier(monitorSettingsDialog->getHardwareIdentifier());
-	// monitorSettingsDialog->connect(saveSettings->ui.saveSettings, SIGNAL(clicked(bool)), SLOT(saveSettingsSettings()));
-	monitorSettingsDialog->connect(saveSettings->ui.save, SIGNAL(clicked(bool)), SLOT(saveSettings()));
-	saveSettings->connect(monitorSettingsDialog, SIGNAL(settingsSaved()), SLOT(loadSettings()));
+    //parser.process(app);
+    //bool loadLastSettings = parser.isSet(loadOption);
 
-	dlg.addPage(saveSettings, QObject::tr("Save settings"), "system-run");
+    MonitorSettingsDialog dlg;
+    app.setActivationWindow(&dlg);
+    dlg.setWindowIcon(QIcon::fromTheme("preferences-desktop-display"));
+    dlg.show();
 
-	QObject::connect(&dlg, SIGNAL(reset()), &dlg, SLOT(accept()));
+    return app.exec();
 
-	if(QDialog::Accepted == dlg.exec() ) {
-		main(argc, argv);
-	}
-
-	return 0;
 }

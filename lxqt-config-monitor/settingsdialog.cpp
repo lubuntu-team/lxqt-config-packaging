@@ -16,21 +16,14 @@
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
+#include "settingsdialog.h"
 
-#ifndef _QUICKOPTIONS_H_
-#define _QUICKOPTIONS_H_
+SettingsDialog::SettingsDialog(const QString &title, LXQt::Settings *settings, QWidget *parent)
+    : LXQt::ConfigDialog(title, settings, parent)
+{
+    setButtons(QDialogButtonBox::QDialogButtonBox::Apply | QDialogButtonBox::Close);
+    setWindowIcon(QIcon::fromTheme("preferences-desktop-display"));
 
-#include "ui_quickoptions.h"
-
-// Monitor info
-class QuickOptions : public QDialog {
-  Q_OBJECT
-
-public:
-  QuickOptions(QWidget* parent = 0);
-
-  Ui::QuickOptions ui;
-
-};
-
-#endif // _QUICKOPTIONS_H_
+    //DaemonSettings *daemon = new DaemonSettings(settings, this);
+    //addPage(daemon, QObject::tr("Daemon"), "system-run");
+}
