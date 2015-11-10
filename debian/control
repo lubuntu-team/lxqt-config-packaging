@@ -6,8 +6,9 @@ Uploaders: Alf Gaida <agaida@siduction.org>,
            Yukiharu YABUKI <yyabuki@debian.org>
 Section: x11
 Priority: optional
-Build-Depends: cmake (>= 3.0.2),
-               debhelper (>= 9),
+Build-Depends: debhelper (>= 9),
+               cmake (>= 3.0.2),
+               libkf5screen-dev,
                libkf5windowsystem-dev,
                liblxqt0-dev (>= 0.9.0+20150911),
                libqt5svg5-dev,
