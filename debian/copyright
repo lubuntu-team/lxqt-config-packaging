@@ -60,7 +60,6 @@ Copyright: 2013-2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 License: GPL-2.0+
 
 Files: lxqt-config-monitor/main.cpp
-       lxqt-config-monitor/main.h
        lxqt-config-monitor/monitor.cpp
        lxqt-config-monitor/monitor.h
        lxqt-config-monitor/monitorwidget.cpp
@@ -68,12 +67,7 @@ Files: lxqt-config-monitor/main.cpp
        lxqt-config-monitor/monitorpicture.h
        lxqt-config-monitor/monitorsettingsdialog.cpp
        lxqt-config-monitor/monitorsettingsdialog.h
-       lxqt-config-monitor/quickoptions.cpp
-       lxqt-config-monitor/quickoptions.h
        lxqt-config-monitor/savesettings.cpp
-       lxqt-config-monitor/savesettings.h
-       lxqt-config-monitor/xrandr.cpp
-       lxqt-config-monitor/xrandr.h
 Copyright: 2014 P.L. Lucas <selairi@gmail.com>
            2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 License: GPL-2.0+
