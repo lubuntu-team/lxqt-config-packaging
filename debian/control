@@ -1,38 +1,35 @@
 Source: lxqt-config
+Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debian.org>
+Uploaders: Alf Gaida <agaida@siduction.org>,
+           ChangZhuo Chen (陳昌倬) <czchen@debian.org>,
+           Andrew Lee (李健秋) <ajqlee@debian.org>,
+           Yukiharu YABUKI <yyabuki@debian.org>
 Section: x11
 Priority: optional
-Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debian.org>
-Uploaders:
- Alf Gaida <agaida@siduction.org>,
- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>,
- Andrew Lee (李健秋) <ajqlee@debian.org>,
- Yukiharu YABUKI <yyabuki@debian.org>
-Build-Depends:
- cmake (>= 3.0.2),
- debhelper (>= 9),
- libkf5windowsystem-dev (>= 5.5.0),
- liblxqt0-dev (>= 0.9.0),
- libqt5svg5-dev,
- libqt5x11extras5-dev (>= 5.3.2),
- libqt5xdg-dev (>= 1.1.0),
- libx11-dev,
- libxcursor-dev,
- libxfixes-dev,
- pkg-config,
- qtbase5-private-dev,
- qttools5-dev (>= 5.3.2),
- qttools5-dev-tools (>= 5.3.2),
- zlib1g-dev,
+Build-Depends: debhelper (>= 9),
+               cmake (>= 3.0.2),
+               libkf5windowsystem-dev,
+               liblxqt0-dev,
+               libqt5svg5-dev,
+               libqt5x11extras5-dev,
+               libqt5xdg-dev,
+               libx11-dev,
+               libxcursor-dev,
+               libxfixes-dev,
+               pkg-config,
+               qtbase5-private-dev,
+               qttools5-dev,
+               qttools5-dev-tools,
+               zlib1g-dev
 Standards-Version: 3.9.6
-Homepage: https://github.com/lxde/lxqt-config
-Vcs-Git: git://anonscm.debian.org/pkg-lxqt/lxqt-config.git
 Vcs-Browser: http://anonscm.debian.org/cgit/pkg-lxqt/lxqt-config.git
+Vcs-Git: git://anonscm.debian.org/pkg-lxqt/lxqt-config.git
+Homepage: https://github.com/lxde/lxqt-config
 
 Package: lxqt-config
 Architecture: any
-Depends:
- ${misc:Depends},
- ${shlibs:Depends},
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
 Description: LXQt system settings center
  The LXQt system settings center
  .
@@ -42,9 +39,8 @@ Package: lxqt-config-dbg
 Architecture: any
 Section: debug
 Priority: extra
-Depends:
- ${misc:Depends},
- lxqt-config (= ${binary:Version}),
+Depends: ${misc:Depends},
+         lxqt-config (= ${binary:Version})
 Description: LXQt system settings center (debug)
  The LXQt system settings center
  .

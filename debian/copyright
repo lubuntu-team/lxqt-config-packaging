@@ -37,7 +37,7 @@ Copyright: 2006-2007 Fredrik Höglund <fredrik@kde.org>
 License: GPL-3.0+
 
 Files: liblxqt-config-cursor/previewwidget.cpp
- liblxqt-config-cursor/previewwidget.h
+       liblxqt-config-cursor/previewwidget.h
 Copyright: 2003-2007 Fredrik Höglund <fredrik@kde.org>
 License: GPL-2.0+
 
@@ -174,7 +174,3 @@ License: WTFPL-2
  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
  .
  0. You just DO WHAT THE FUCK YOU WANT TO.
-
-
-
-
