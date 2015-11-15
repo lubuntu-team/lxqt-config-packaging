@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
 
 project(lxqt-config)
+set(LXQT_CONFIG_PROJECT "${PROJECT_NAME}")
 
 option(UPDATE_TRANSLATIONS "Update source translation translations/*.ts files" OFF)
 
@@ -29,6 +30,7 @@ add_subdirectory(lxqt-config-input)
 add_subdirectory(lxqt-config-file-associations)
 add_subdirectory(lxqt-config-appearance)
 add_subdirectory(lxqt-config-monitor)
+add_subdirectory(lxqt-config-locale)
 
 # building tarball with CPack -------------------------------------------------
 include(InstallRequiredSystemLibraries)

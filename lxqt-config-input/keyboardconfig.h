@@ -23,7 +23,7 @@
 #include <QDialog>
 #include "ui_keyboardconfig.h"
 
-namespace LxQt {
+namespace LXQt {
   class Settings;
 }
 class QSettings;
@@ -32,7 +32,7 @@ class KeyboardConfig : public QWidget {
   Q_OBJECT
 
 public:
-  KeyboardConfig(LxQt::Settings* _settings, QSettings* _qtSettings, QWidget* parent = 0);
+  KeyboardConfig(LXQt::Settings* _settings, QSettings* _qtSettings, QWidget* parent = 0);
   virtual ~KeyboardConfig();
 
   void accept();
@@ -49,10 +49,11 @@ private Q_SLOTS:
   void onKeyboardSliderChanged(int value);
   void onKeyboardBeepToggled(bool checked);
   void onCorsorFlashTimeChanged(int value);
+  void onKeyboardNumLockToggled(bool checked);
 
 private:
   Ui::KeyboardConfig ui;
-  LxQt::Settings* settings;
+  LXQt::Settings* settings;
   QSettings* qtSettings;
   int delay;
   int oldDelay;
@@ -60,6 +61,7 @@ private:
   int oldInterval;
   bool beep;
   bool oldBeep;
+  bool numlock;
 };
 
 #endif // KEYBOARDCONFIG_H

@@ -17,37 +17,59 @@
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-
 #ifndef _MONITORWIDGET_H_
 #define _MONITORWIDGET_H_
+
+#include "ui_monitorwidget.h"
 
 #include <QGroupBox>
 #include <QStringList>
 #include <QHash>
 #include <QList>
-#include "ui_monitorwidget.h"
+#include <KScreen/Config>
+#include <KScreen/Output>
 
-class MonitorInfo;
-class MonitorSettings;
+#define PrimaryDisplay 0
+#define ExtendDisplay 1
+#define CloneDisplay 2
 
-// Monitor info
-class MonitorWidget : public QGroupBox {
+#define RightOf 0
+#define LeftOf 1
+#define Above 2
+#define Below 3
+#define Manually 4
+
+class MonitorWidget : public QGroupBox
+{
   Q_OBJECT
 
+  friend class MonitorPicture;
+  friend class MonitorPictureDialog;
+
 public:
-  MonitorWidget(MonitorInfo* monitor, const QList< MonitorInfo* > monitorsInfo, QWidget* parent = 0);
-  MonitorSettings* getSettings();
-  void chooseMaxResolution();
-  void enableMonitor(bool enable);
+    MonitorWidget(KScreen::OutputPtr output, KScreen::ConfigPtr config, QWidget* parent = 0);
+    ~MonitorWidget();
 
-  MonitorInfo* monitorInfo;
+    void updateRefreshRates();
 
-  Ui::MonitorWidget ui;
+    KScreen::OutputPtr output;
+    KScreen::ConfigPtr config;
+
 public Q_SLOTS:
-  void disablePositionOption(bool disabled);
+    void setOnlyMonitor(bool isOnlyMonitor);
 
 private Q_SLOTS:
-  void onResolutionChanged(int);
+    void onEnabledChanged(bool);
+    void onBehaviorChanged(int);
+    void onPositioningChanged(int);
+    void onPositionChanged(int);
+    void onResolutionChanged(int);
+    void onRateChanged(int);
+    void onOrientationChanged(int);
+    void onCloneChanged(int);
+
+private:
+    Ui::MonitorWidget ui;
 };
 
 #endif // _MONITORWIDGET_H_

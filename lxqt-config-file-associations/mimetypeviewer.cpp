@@ -110,7 +110,7 @@ MimetypeViewer::MimetypeViewer(QWidget *parent)
 
     QString mimeappsListPath(XdgDirs::dataHome(true) + "/applications/mimeapps.list");
     mDefaultsList = new QSettings(mimeappsListPath, XdgDesktopFileCache::desktopFileSettingsFormat(), this);
-    mSettingsCache = new LxQt::SettingsCache(mDefaultsList);
+    mSettingsCache = new LXQt::SettingsCache(mDefaultsList);
     mSettingsCache->loadFromSettings();
     initializeMimetypeTreeView();
     loadAllMimeTypes();
@@ -217,7 +217,6 @@ void MimetypeViewer::filter(const QString& pattern)
 {
     QMimeDatabase db;
     MimeTypeData mimeData;
-    const int count = widget.mimetypeTreeWidget->topLevelItemCount();
 
     for (int i = 0; i < widget.mimetypeTreeWidget->topLevelItemCount(); ++i) {
         widget.mimetypeTreeWidget->topLevelItem(i)->setHidden(true);

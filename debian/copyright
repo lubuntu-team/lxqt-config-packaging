@@ -19,20 +19,30 @@ Copyright: 2007, 2009 Rafael Fernández López <ereslibre@kde.org>
            2007 John Tapsell <tapsell@kde.org>
 License: LGPL-2.0+
 
-Files: liblxqt-config-cursor/cfgfile.h liblxqt-config-cursor/main.cpp
- liblxqt-config-cursor/selectwnd.h liblxqt-config-cursor/main.h
- liblxqt-config-cursor/selectwnd.cpp liblxqt-config-cursor/xcr/xcrtheme.h
- liblxqt-config-cursor/xcr/xcrxcur.cpp liblxqt-config-cursor/xcr/xcrxcur.h
- liblxqt-config-cursor/xcr/xcrthemefx.cpp liblxqt-config-cursor/xcr/xcrthemefx.h
- liblxqt-config-cursor/xcr/xcrimg.h liblxqt-config-cursor/xcr/xcrthemexp.cpp
- liblxqt-config-cursor/xcr/xcrtheme.cpp liblxqt-config-cursor/xcr/xcrthemexp.h
- liblxqt-config-cursor/xcr/xcrimg.cpp
+Files: liblxqt-config-cursor/cfgfile.h
+       liblxqt-config-cursor/main.cpp
+       liblxqt-config-cursor/main.h
+       liblxqt-config-cursor/selectwnd.cpp
+       liblxqt-config-cursor/selectwnd.h
+       liblxqt-config-cursor/xcr/xcrimg.cpp
+       liblxqt-config-cursor/xcr/xcrimg.h
+       liblxqt-config-cursor/xcr/xcrtheme.cpp
+       liblxqt-config-cursor/xcr/xcrtheme.h
+       liblxqt-config-cursor/xcr/xcrthemefx.cpp
+       liblxqt-config-cursor/xcr/xcrthemefx.h
+       liblxqt-config-cursor/xcr/xcrthemexp.cpp
+       liblxqt-config-cursor/xcr/xcrthemexp.h
+       liblxqt-config-cursor/xcr/xcrxcur.cpp
+       liblxqt-config-cursor/xcr/xcrxcur.h
 Copyright: Ketmar <psyc://ketmar.no-ip.org/~Ketmar>
 License: WTFPL-2
 
-Files: liblxqt-config-cursor/thememodel.h liblxqt-config-cursor/itemdelegate.cpp
- liblxqt-config-cursor/crtheme.h liblxqt-config-cursor/thememodel.cpp
- liblxqt-config-cursor/crtheme.cpp liblxqt-config-cursor/itemdelegate.h
+Files: liblxqt-config-cursor/itemdelegate.cpp
+       liblxqt-config-cursor/itemdelegate.h
+       liblxqt-config-cursor/crtheme.cpp
+       liblxqt-config-cursor/crtheme.h
+       liblxqt-config-cursor/thememodel.cpp
+       liblxqt-config-cursor/thememodel.h
 Copyright: 2006-2007 Fredrik Höglund <fredrik@kde.org>
 License: GPL-3.0+
 
@@ -41,20 +51,23 @@ Files: liblxqt-config-cursor/previewwidget.cpp
 Copyright: 2003-2007 Fredrik Höglund <fredrik@kde.org>
 License: GPL-2.0+
 
-Files: lxqt-config-input/lxqt-config-input.cpp lxqt-config-input/mouseconfig.cpp
- lxqt-config-input/mouseconfig.h lxqt-config-input/keyboardconfig.h
- lxqt-config-input/keyboardconfig.cpp
+Files: lxqt-config-input/keyboardconfig.cpp
+       lxqt-config-input/keyboardconfig.h
+       lxqt-config-input/lxqt-config-input.cpp
+       lxqt-config-input/mouseconfig.cpp
+       lxqt-config-input/mouseconfig.h
 Copyright: 2013-2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 License: GPL-2.0+
 
-Files: lxqt-config-monitor/monitor.h lxqt-config-monitor/main.cpp
- lxqt-config-monitor/monitorwidget.cpp lxqt-config-monitor/monitorwidget.h
- lxqt-config-monitor/main.h lxqt-config-monitor/xrandr.cpp
- lxqt-config-monitor/monitor.cpp lxqt-config-monitor/monitorsettingsdialog.cpp
- lxqt-config-monitor/quickoptions.cpp
- lxqt-config-monitor/monitorsettingsdialog.h lxqt-config-monitor/quickoptions.h
- lxqt-config-monitor/savesettings.h lxqt-config-monitor/monitorpicture.h
- lxqt-config-monitor/xrandr.h lxqt-config-monitor/savesettings.cpp
+Files: lxqt-config-monitor/main.cpp
+       lxqt-config-monitor/monitor.cpp
+       lxqt-config-monitor/monitor.h
+       lxqt-config-monitor/monitorwidget.cpp
+       lxqt-config-monitor/monitorwidget.h
+       lxqt-config-monitor/monitorpicture.h
+       lxqt-config-monitor/monitorsettingsdialog.cpp
+       lxqt-config-monitor/monitorsettingsdialog.h
+       lxqt-config-monitor/savesettings.cpp
 Copyright: 2014 P.L. Lucas <selairi@gmail.com>
            2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 License: GPL-2.0+

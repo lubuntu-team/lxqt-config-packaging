@@ -36,7 +36,7 @@
 extern void qt_x11_apply_settings_in_all_apps();
 #endif
 
-MouseConfig::MouseConfig(LxQt::Settings* _settings, QSettings* _qtSettings, QWidget* parent):
+MouseConfig::MouseConfig(LXQt::Settings* _settings, QSettings* _qtSettings, QWidget* parent):
   QWidget(parent),
   settings(_settings),
   qtSettings(_qtSettings),
@@ -87,7 +87,6 @@ void MouseConfig::initControls() {
 
 
 void MouseConfig::onMouseAccelChanged(int value) {
-  QSlider* slider = static_cast<QSlider*>(sender());
   accel = value;
   XChangePointerControl(QX11Info::display(), True, False,
                         accel, 10, 0);
@@ -95,7 +94,6 @@ void MouseConfig::onMouseAccelChanged(int value) {
 }
 
 void MouseConfig::onMouseThresholdChanged(int value) {
-  QSlider* slider = static_cast<QSlider*>(sender());
   /* threshold = 110 - sensitivity. The lower the threshold, the higher the sensitivity */
   threshold = 110 - value;
   XChangePointerControl(QX11Info::display(), False, True,
@@ -175,8 +173,8 @@ void MouseConfig::loadSettings() {
   oldSingleClick = singleClick = qtSettings->value("single_click_activate", false).toBool();
 
   settings->beginGroup("Mouse");
-  oldAccel = accel = settings->value("acc_factor", 20).toInt();
-  oldThreshold = threshold = settings->value("acc_threshold", 10).toInt();
+  oldAccel = accel = settings->value("accel_factor", 20).toInt();
+  oldThreshold = threshold = settings->value("accel_threshold", 10).toInt();
   oldLeftHanded = leftHanded = settings->value("left_handed", false).toBool();
   settings->endGroup();
 }
@@ -185,8 +183,8 @@ void MouseConfig::accept() {
   qtSettings->setValue("single_click_activate", singleClick);
 
   settings->beginGroup("Mouse");
-  settings->setValue("acc_factor", accel);
-  settings->setValue("acc_threshold", threshold);
+  settings->setValue("accel_factor", accel);
+  settings->setValue("accel_threshold", threshold);
   settings->setValue("left_handed", leftHanded);
   settings->endGroup();
 }
