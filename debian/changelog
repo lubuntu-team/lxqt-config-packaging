@@ -7,7 +7,7 @@ lxqt-config (0.10.0-2) unstable; urgency=medium
   * Remove Debian specific menu in favor of .desktop menu system.
   * Install manpage for lxqt-config.
 
- -- ChangZhuo Chen (陳昌倬) <czchen@debian.org>  Tue, 10 Nov 2015 23:19:34 +0800
+ -- ChangZhuo Chen (陳昌倬) <czchen@debian.org>  Sun, 15 Nov 2015 15:15:10 +0800
 
 lxqt-config (0.9.0+20150806-2) unstable; urgency=medium
 
