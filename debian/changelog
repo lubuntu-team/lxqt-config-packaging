@@ -1,3 +1,9 @@
+lxqt-config (0.10.0-3) unstable; urgency=medium
+
+  * Remove dbg package in favor of dbgsym.
+
+ -- Alf Gaida <agaida@siduction.org>  Sat, 26 Dec 2015 18:36:15 +0100
+
 lxqt-config (0.10.0-2) unstable; urgency=medium
 
   * Merge from experimental.

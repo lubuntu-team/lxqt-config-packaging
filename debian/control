@@ -35,14 +35,3 @@ Description: LXQt system settings center
  The LXQt system settings center
  .
  This package contain the LXQt configuration ui.
-
-Package: lxqt-config-dbg
-Architecture: any
-Section: debug
-Priority: extra
-Depends: ${misc:Depends},
-         lxqt-config (= ${binary:Version})
-Description: LXQt system settings center (debug)
- The LXQt system settings center
- .
- This package contain the debugging symbols for LXQt config ui.
