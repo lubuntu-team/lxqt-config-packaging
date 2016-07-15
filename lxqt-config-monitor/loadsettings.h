@@ -22,6 +22,7 @@
 
 #include <KScreen/GetConfigOperation>
 #include <KScreen/SetConfigOperation>
+#include "monitor.h"
 
 class LoadSettings : public QObject
 {
@@ -38,5 +39,10 @@ private:
     // Configutarions
     KScreen::ConfigPtr mConfig;
 };
+
+/*! Apply settings.
+ */
+void applySettings(KScreen::ConfigPtr config, QList<MonitorSettings> monitors);
+
 
 #endif // __LOADSETTINGS_H__

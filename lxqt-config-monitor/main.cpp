@@ -66,6 +66,11 @@ int main(int argc, char** argv)
     dlg.setWindowIcon(QIcon::fromTheme("preferences-desktop-display"));
     dlg.show();
 
-    return app.exec();
+    int ok = app.exec();
+    
+    // FIXME: kscreen backend doesn't close properly.
+    //system("killall kscreen_backend_launcher");
+    
+    return ok;
 
 }

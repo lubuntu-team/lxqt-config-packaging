@@ -10,6 +10,8 @@ set(HEADERS
     monitorpicture.h
     loadsettings.h
     settingsdialog.h
+    managesavedsettings.h
+    fastmenu.h
 )
 
 set(SOURCES
@@ -21,6 +23,8 @@ set(SOURCES
     monitorpicture.cpp
     loadsettings.cpp
     settingsdialog.cpp
+    managesavedsettings.cpp
+    fastmenu.cpp
 )
 
 set(UIS
@@ -28,6 +32,8 @@ set(UIS
     monitorwidget.ui
     timeoutdialog.ui
     monitorpicture.ui
+    managesavedsettings.ui
+    fastmenu.ui
 )
 
 set(ICONS
@@ -47,6 +53,16 @@ lxqt_translate_ts(QM_FILES
         ${UIS}
     INSTALL_DIR
         "${LXQT_TRANSLATIONS_DIR}/${PROJECT_NAME}"
+    PULL_TRANSLATIONS
+        ${PULL_TRANSLATIONS}
+    CLEAN_TRANSLATIONS
+        ${CLEAN_TRANSLATIONS}
+    TRANSLATIONS_REPO
+        ${TRANSLATIONS_REPO}
+    TRANSLATIONS_REFSPEC
+        ${TRANSLATIONS_REFSPEC}
+    REPO_SUBDIR
+        "lxqt-config/${PROJECT_NAME}"
 )
 
 lxqt_app_translation_loader(QM_LOADER ${PROJECT_NAME})
@@ -73,4 +89,4 @@ target_link_libraries(${PROJECT_NAME}
 
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
 install(FILES ${DESKTOP_FILES} DESTINATION "${CMAKE_INSTALL_FULL_DATADIR}/applications")
-install(FILES ${ICON_FILES} DESTINATION "${CMAKE_INSTALL_FULL_DATADIR}/lxqt/icons")
+install(FILES ${ICONS} DESTINATION "${CMAKE_INSTALL_FULL_DATADIR}/lxqt/icons")
