@@ -1,3 +1,21 @@
+lxqt-config (0.10.0-4) UNRELEASED; urgency=medium
+
+  * Preparing the upcoming release, switch to experimental
+  * Fixed .gititgnore, added build-stamp
+  * Added build-depenedency libqt5xdgiconloader-dev
+  * Bumped Standards to 3.9.8, no changes needed
+  * Fixed VCS fields, use https and plain /git/ 
+  * Added Recommends lxqt-config-l10n
+  * Fixed copyright Format
+  * Added missed new files to copyright
+  * Bumped years in copyright
+  * Fixed lintian-overrides
+  * Added DEB_BUILD_MAINT_OPTIONS = hardening=+all
+  * Added translation control
+  * Added DCMAKE_BUILD_TYPE=RelWithDebInfo
+
+ -- Alf Gaida <agaida@siduction.org>  Fri, 15 Jul 2016 19:00:33 +0200
+
 lxqt-config (0.10.0-3) unstable; urgency=medium
 
   * Remove dbg package in favor of dbgsym.

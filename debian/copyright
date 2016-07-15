@@ -1,9 +1,9 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: lxqt-config
 Source: https://github.com/lxde/lxqt-config
 
 Files: *
-Copyright: 2012-2015 LXQt team
+Copyright: 2012-2016 LXQt team
            2010-2012 Razor team
            2013 Christian Surlykke
            2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
@@ -72,8 +72,19 @@ Copyright: 2014 P.L. Lucas <selairi@gmail.com>
            2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 License: GPL-2.0+
 
+Files: lxqt-config-brightness/brightnesssettings.*
+       lxqt-config-brightness/main.cpp
+       lxqt-config-brightness/monitorinfo.*
+Copyright: 2016 P.L. Lucas <selairi@gmail.com>
+License: LGPL-2.1+
+
+Files: lxqt-config-brightness/xrandrbrightness.*
+Copyright: 2015 Kai Uwe Broulik <kde@privat.broulik.de>
+           2010 Lukas Tinkl <ltinkl@redhat.com>
+License: LGPL-2.0+
+
 Files: debian/*
-Copyright: 2014-2015 Alf Gaida <agaida@siduction.org>
+Copyright: 2014-2016 Alf Gaida <agaida@siduction.org>
            2015      Andrew Lee (李健秋) <ajqlee@debian.org>
 License: LGPL-2.1+
 
