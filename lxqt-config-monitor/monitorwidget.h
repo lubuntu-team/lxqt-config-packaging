@@ -31,7 +31,6 @@
 
 #define PrimaryDisplay 0
 #define ExtendDisplay 1
-#define CloneDisplay 2
 
 #define RightOf 0
 #define LeftOf 1
@@ -54,6 +53,9 @@ public:
 
     KScreen::OutputPtr output;
     KScreen::ConfigPtr config;
+    
+signals:
+    void primaryOutputChanged(MonitorWidget *widget);
 
 public Q_SLOTS:
     void setOnlyMonitor(bool isOnlyMonitor);
@@ -61,12 +63,11 @@ public Q_SLOTS:
 private Q_SLOTS:
     void onEnabledChanged(bool);
     void onBehaviorChanged(int);
-    void onPositioningChanged(int);
     void onPositionChanged(int);
     void onResolutionChanged(int);
     void onRateChanged(int);
     void onOrientationChanged(int);
-    void onCloneChanged(int);
+    void onPrimaryOutputChanged(MonitorWidget *widget);
 
 private:
     Ui::MonitorWidget ui;

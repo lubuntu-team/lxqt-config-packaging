@@ -27,17 +27,10 @@
 
 #include "iconthemeconfig.h"
 
-#include <XdgDesktopFile>
-#include <XdgIcon>
 #include <LXQt/Settings>
 #include <QStringList>
 #include <QStringBuilder>
 #include <QIcon>
-#include <QDebug>
-
-#include <private/qtxdg/qiconloader_p.h>
-
-using namespace QtXdg;
 
 IconThemeConfig::IconThemeConfig(LXQt::Settings* settings, QWidget* parent):
     QWidget(parent),
@@ -49,16 +42,13 @@ IconThemeConfig::IconThemeConfig(LXQt::Settings* settings, QWidget* parent):
     initControls();
     connect(iconThemeList, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
             this, SLOT(iconThemeSelected(QTreeWidgetItem*,int)));
-
-    connect(LXQt::Settings::globalSettings(), SIGNAL(settingsChanged()),
-            this, SLOT(update()));
 }
 
 
 void IconThemeConfig::initIconsThemes()
 {
     QStringList processed;
-    QStringList baseDirs = QIcon::themeSearchPaths();
+    const QStringList baseDirs = QIcon::themeSearchPaths();
     static const QStringList iconNames = QStringList()
                     << QStringLiteral("document-open")
                     << QStringLiteral("document-new")
@@ -69,14 +59,14 @@ void IconThemeConfig::initIconsThemes()
     iconThemeList->setColumnCount(iconNamesN + 2);
 
     QList<QTreeWidgetItem *> items;
-    foreach (QString baseDirName, baseDirs)
+    foreach (const QString &baseDirName, baseDirs)
     {
         QDir baseDir(baseDirName);
         if (!baseDir.exists())
             continue;
 
-        QFileInfoList dirs = baseDir.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot, QDir::Name);
-        foreach (QFileInfo dir, dirs)
+        const QFileInfoList dirs = baseDir.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot, QDir::Name);
+        foreach (const QFileInfo &dir, dirs)
         {
             if (!processed.contains(dir.canonicalFilePath()))
             {
@@ -114,7 +104,6 @@ void IconThemeConfig::initIconsThemes()
             }
         }
     }
-    QIconLoader::instance()->updateSystemTheme();
 
     iconThemeList->insertTopLevelItems(0, items);
     for (int i=0; i<iconThemeList->header()->count()-1; ++i)
@@ -126,8 +115,7 @@ void IconThemeConfig::initIconsThemes()
 
 void IconThemeConfig::initControls()
 {
-    QString currentTheme = LXQt::Settings::globalSettings()->value("icon_theme").toString();
-    XdgIcon::setThemeName(currentTheme);
+    QString currentTheme = QIcon::themeName();
     QTreeWidgetItemIterator it(iconThemeList);
     while (*it) {
         if ((*it)->data(0, Qt::UserRole).toString() == currentTheme)
@@ -153,12 +141,6 @@ void IconThemeConfig::iconThemeSelected(QTreeWidgetItem *item, int column)
     QString theme = item->data(0, Qt::UserRole).toString();
     if (!theme.isEmpty())
     {
-        XdgIcon::setThemeName(theme);
-
-        // An hack to ensure that this widget also re loads it's own icons
-        // from the selected icon theme.
-        QIconLoader::instance()->setThemeName(QString());
-
         m_settings->setValue("icon_theme",  theme);
         m_settings->sync();
     }
