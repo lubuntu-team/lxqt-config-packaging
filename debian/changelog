@@ -1,3 +1,12 @@
+lxqt-config (0.10.96~62-g80c413c-2) experimental; urgency=medium
+
+  * Added build dependencies gcc (>= 4:6), g++ (>= 4:6)
+  * Exported LC_ALL=C.UTF-8 - define language settings for reproducable
+    builds
+  * Set additional minumum versions (libqtxdg, liblxqt)
+
+ -- Alf Gaida <agaida@siduction.org>  Sun, 17 Jul 2016 14:16:03 +0200
+
 lxqt-config (0.10.96~62-g80c413c-1) experimental; urgency=medium
 
   * Cherry-picking upstream version 0.10.96~62-g80c413c.
