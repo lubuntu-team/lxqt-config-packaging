@@ -1,3 +1,16 @@
+lxqt-config (0.11.0-1) experimental; urgency=medium
+
+  * Chery-picking new upstream release 0.11.0
+  * Bumped build dependency debhelper (>= 10)
+  * Bumped build dependency libqtxdg-dev (>= 2.0.0)
+  * Bumped build dependency liblxqt-dev (>= 0.11.0)
+  * Added build dependency libqt5svg5-dev
+  * Bumped compat to 10
+  * Removed --parallel from rules, standard in compat 10
+  * Added README.md to docs
+
+ -- Alf Gaida <agaida@siduction.org>  Sun, 25 Sep 2016 13:19:56 +0200
+
 lxqt-config (0.10.96~62-g80c413c-3) experimental; urgency=medium
 
   * Fixed two typos in changelog 
