@@ -20,20 +20,24 @@
 #include "monitorsettingsdialog.h"
 
 #include "monitorwidget.h"
+#include "monitor.h"
 #include "timeoutdialog.h"
 #include "monitorpicture.h"
 #include "settingsdialog.h"
+#include "fastmenu.h"
 
 #include <KScreen/Output>
 #include <QJsonObject>
 #include <QJsonArray>
-#include <QSettings>
+#include <LXQt/Settings>
 #include <QJsonDocument>
 #include <KScreen/EDID>
 #include <QFile>
 #include <QDir>
 #include <QFileInfo>
 #include <QMessageBox>
+#include <QDateTime>
+#include <lxqtautostartentry.h>
 
 MonitorSettingsDialog::MonitorSettingsDialog() :
     QDialog(nullptr, 0)
@@ -43,11 +47,27 @@ MonitorSettingsDialog::MonitorSettingsDialog() :
     KScreen::GetConfigOperation *operation = new KScreen::GetConfigOperation();
     connect(operation, &KScreen::GetConfigOperation::finished, [this, operation] (KScreen::ConfigOperation *op) {
         KScreen::GetConfigOperation *configOp = qobject_cast<KScreen::GetConfigOperation *>(op);
-        if (configOp)
+        qDebug() << "Connecting to KScreen...";
+        if (configOp && configOp->config() && configOp->config()->screen())
         {
             mOldConfig = configOp->config()->clone();
             loadConfiguration(configOp->config());
             operation->deleteLater();
+        }
+        else if(configOp && !configOp->config())
+        {
+            qDebug() << "Error: Config is invalid, probably backend couldn't load";
+            exit(1);
+        }
+        else if(configOp && configOp->config() && !configOp->config()->screen())
+        {
+            qDebug() << "Error: No screen in the configuration, broken backend";
+            exit(2);
+        }
+        else
+        {
+            qDebug() << "Error: Connect to KScreen is not possible";
+            exit(3);
         }
     });
 
@@ -61,7 +81,6 @@ MonitorSettingsDialog::MonitorSettingsDialog() :
 
     });
 
-    ui.settingsButton->hide(); // Hide settings button until daemon works OK.
     connect(ui.settingsButton, SIGNAL(clicked()), this, SLOT(showSettingsDialog()));
 }
 
@@ -77,6 +96,7 @@ void MonitorSettingsDialog::loadConfiguration(KScreen::ConfigPtr config)
     mConfig = config;
 
     MonitorPictureDialog *monitorPicture = nullptr;
+    FastMenu *fastMenu = nullptr;
     KScreen::OutputList outputs = mConfig->outputs();
 
     int nMonitors = 0;
@@ -87,6 +107,10 @@ void MonitorSettingsDialog::loadConfiguration(KScreen::ConfigPtr config)
 
         if (nMonitors > 1)
         {
+            fastMenu = new FastMenu(config, this);
+            ui.monitorList->addItem(tr("Fast Menu"));
+            ui.stackedWidget->addWidget(fastMenu);
+            
             monitorPicture = new MonitorPictureDialog(config, this);
             ui.monitorList->addItem(tr("Set position"));
             ui.stackedWidget->addWidget(monitorPicture);
@@ -104,6 +128,15 @@ void MonitorSettingsDialog::loadConfiguration(KScreen::ConfigPtr config)
             ui.monitorList->addItem(output->name());
             ui.stackedWidget->addWidget(monitor);
             monitors.append(monitor);
+        }
+    }
+    
+    Q_FOREACH(MonitorWidget *monitor1, monitors)
+    {
+        Q_FOREACH(MonitorWidget *monitor, monitors)
+        {
+            if(monitor != monitor1)
+                connect(monitor, SIGNAL(primaryOutputChanged(MonitorWidget *)), monitor1, SLOT(onPrimaryOutputChanged(MonitorWidget *)));
         }
     }
 
@@ -145,66 +178,59 @@ void MonitorSettingsDialog::reject()
 
 void MonitorSettingsDialog::saveConfiguration(KScreen::ConfigPtr config)
 {
-    QJsonObject json;
-    QJsonArray jsonArray;
+    
+    QList<MonitorSettings> currentSettings;
     KScreen::OutputList outputs = config->outputs();
     for (const KScreen::OutputPtr &output : outputs)
     {
-        QJsonObject monitorSettings;
-        monitorSettings["name"] = output->name();
+        MonitorSettings monitor;
+        monitor.name = output->name();
         KScreen::Edid* edid = output->edid();
         if (edid && edid->isValid())
-            monitorSettings["hash"] = edid->hash();
-        monitorSettings["connected"] = output->isConnected();
+            monitor.hash = edid->hash();
+        monitor.connected = output->isConnected();
         if ( output->isConnected() )
         {
-            monitorSettings["enabled"] = output->isEnabled();
-            monitorSettings["primary"] = output->isPrimary();
-            monitorSettings["xPos"] = output->pos().x();
-            monitorSettings["yPos"] = output->pos().y();
-            monitorSettings["currentMode"] = output->currentMode()->id();
-            monitorSettings["rotation"] = output->rotation();
+            monitor.enabled = output->isEnabled();
+            monitor.primary = output->isPrimary();
+            monitor.xPos = output->pos().x();
+            monitor.yPos = output->pos().y();
+            monitor.currentMode = output->currentModeId();
+            monitor.currentModeWidth = output->currentMode()->size().width();
+            monitor.currentModeHeight = output->currentMode()->size().height();
+            monitor.currentModeRate = output->currentMode()->refreshRate();
+            monitor.rotation = output->rotation();
         }
-        jsonArray.append(monitorSettings);
+        currentSettings.append(monitor);
     }
-    json["outputs"] = jsonArray;
     
-    QSettings settings("LXQt", "lxqt-config-monitor");
-    settings.setValue("currentConfig", QVariant(QJsonDocument(json).toJson()));
-
-    QString desktop = QString("[Desktop Entry]\n"
-                              "Type=Application\n"
-                              "Name=LXQt-config-monitor autostart\n"
-                              "Comment=Autostart monitor settings for LXQt-config-monitor\n"
-                              "Exec=%1\n"
-                              "OnlyShowIn=LXQt\n").arg("lxqt-config-monitor -l");
+    LXQt::Settings settings("lxqt-config-monitor");
+    settings.beginGroup("currentConfig");
+    saveMonitorSettings(settings, currentSettings);
+    settings.endGroup();
     
-    // Check autostart path: $XDG_CONFIG_HOME or ~/.config/autostart
-    QString autostartPath;
-    bool ok = true;
-    if(qEnvironmentVariableIsSet("XDG_CONFIG_HOME"))
-        autostartPath = QString(qgetenv("XDG_CONFIG_HOME"));
-    else
-    {
-         autostartPath = QDir::homePath() + "/.config/autostart/";
-        // Check if ~/.config/autostart/ exists
-        QFileInfo fileInfo(autostartPath);
-        if( ! fileInfo.exists() )
-            ok = QDir::root().mkpath(autostartPath);
-    }
-    QFile file(autostartPath + "/lxqt-config-monitor-autostart.desktop");
-    if(ok)
-            ok = file.open(QIODevice::WriteOnly | QIODevice::Text);
-    if(!ok) {
-      QMessageBox::critical(this, tr("Error"), tr("Config can not be saved"));
-      return;
-    }
-    QTextStream out(&file);
-    out << desktop;
-    out.flush();
-    file.close();
+    QList<MonitorSavedSettings> monitors;
+    settings.beginGroup("SavedConfigs");
+    loadMonitorSettings(settings, monitors);
+    qDebug() << "[ MonitorSettingsDialog::saveConfiguration] # monitors Read:" << monitors.size();
+    MonitorSavedSettings monitor;
+    monitor.name = QDateTime::currentDateTime().toString();
+    monitor.date = QDateTime::currentDateTime().toString(Qt::ISODate);
+    monitor.monitors = currentSettings;
+    monitors.append(monitor);
+    saveMonitorSettings(settings, monitors);
+    qDebug() << "[ MonitorSettingsDialog::saveConfiguration] # monitors Write:" << monitors.size();
+    settings.endGroup();
 
+    LXQt::AutostartEntry autoStart("lxqt-config-monitor-autostart.desktop");
+    XdgDesktopFile desktopFile(XdgDesktopFile::ApplicationType, "lxqt-config-monitor-autostart", "lxqt-config-monitor -l");
+    //desktopFile.setValue("OnlyShowIn", QString(qgetenv("XDG_CURRENT_DESKTOP")));
+    desktopFile.setValue("OnlyShowIn", "LXQt");
+    desktopFile.setValue("Comment", "Autostart monitor settings for LXQt-config-monitor");
+    autoStart.setFile(desktopFile);
+    autoStart.commit();
 }
+
 
 void MonitorSettingsDialog::showSettingsDialog()
 {
@@ -215,6 +241,6 @@ void MonitorSettingsDialog::showSettingsDialog()
 
     LXQt::Settings settings(configName);
 
-    SettingsDialog settingsDialog(tr("Advanced settings"), &settings);
+    SettingsDialog settingsDialog(tr("Advanced settings"), &settings, mConfig);
     settingsDialog.exec();
 }

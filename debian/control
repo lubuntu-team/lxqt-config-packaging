@@ -6,14 +6,15 @@ Uploaders: Alf Gaida <agaida@siduction.org>,
            Yukiharu YABUKI <yyabuki@debian.org>
 Section: x11
 Priority: optional
-Build-Depends: debhelper (>= 9),
+Build-Depends: debhelper (>= 10),
                cmake (>= 3.0.2),
                libkf5screen-dev,
                libkf5windowsystem-dev,
-               liblxqt0-dev (>= 0.10.0),
+               liblxqt0-dev (>= 0.11.0),
                libqt5svg5-dev,
                libqt5x11extras5-dev,
-               libqt5xdg-dev,
+               libqt5xdg-dev (>= 2.0.0),
+               libqt5xdgiconloader-dev (>= 2.0.0),
                libx11-dev,
                libxcursor-dev,
                libxfixes-dev,
@@ -22,15 +23,16 @@ Build-Depends: debhelper (>= 9),
                qttools5-dev,
                qttools5-dev-tools,
                zlib1g-dev
-Standards-Version: 3.9.6
-Vcs-Browser: http://anonscm.debian.org/cgit/pkg-lxqt/lxqt-config.git/?h=debian/sid
-Vcs-Git: git://anonscm.debian.org/pkg-lxqt/lxqt-config.git -b debian/sid
+Standards-Version: 3.9.8
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-lxqt/lxqt-config.git/?h=debian/sid
+Vcs-Git: https://anonscm.debian.org/git/pkg-lxqt/lxqt-config.git -b debian/sid
 Homepage: https://github.com/lxde/lxqt-config
 
 Package: lxqt-config
 Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends}
+Recommends: lxqt-config-l10n
 Description: LXQt system settings center
  The LXQt system settings center
  .

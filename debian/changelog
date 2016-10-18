@@ -1,3 +1,31 @@
+lxqt-config (0.11.0-2) unstable; urgency=medium
+
+  * Chery-picking new upstream release 0.11.0
+  * Synced debian foo with experimental
+  * Bumped Standards to 3.9.8, no changes needed
+  * Bumped compat to 10
+  * Removed --parallel from rules, compat 10 standard
+  * Bumped build dependency debhelper (>= 10)
+  * Bumped build dependency libqtxdg-dev (>= 2.0.0)
+  * Added build-depenedency libqt5xdgiconloader-dev (>= 2.0.0)
+  * Bumped build dependency liblxqt-dev (>= 0.11.0)
+  * Added build dependency libqt5svg5-dev
+  * Added Recommends lxqt-config-l10n
+  * Added README.md to docs
+  * Exported LC_ALL=C.UTF-8 - define language settings for reproducible
+    builds
+  * Fixed .gititgnore, added build-stamp
+  * Fixed VCS fields, use https and plain /git/ 
+  * Fixed copyright Format
+  * Added missed new files to copyright
+  * Bumped years in copyright
+  * Fixed lintian-overrides
+  * Added DEB_BUILD_MAINT_OPTIONS = hardening=+all
+  * Added translation control
+  * Added DCMAKE_BUILD_TYPE=RelWithDebInfo
+
+ -- Alf Gaida <agaida@siduction.org>  Tue, 18 Oct 2016 02:28:02 +0200
+
 lxqt-config (0.10.0-3) unstable; urgency=medium
 
   * Remove dbg package in favor of dbgsym.

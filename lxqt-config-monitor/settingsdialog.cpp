@@ -17,8 +17,10 @@
 */
 
 #include "settingsdialog.h"
+#include "managesavedsettings.h"
+#include <KScreen/Output>
 
-SettingsDialog::SettingsDialog(const QString &title, LXQt::Settings *settings, QWidget *parent)
+SettingsDialog::SettingsDialog(const QString &title, LXQt::Settings *settings, KScreen::ConfigPtr config, QWidget *parent)
     : LXQt::ConfigDialog(title, settings, parent)
 {
     setButtons(QDialogButtonBox::QDialogButtonBox::Apply | QDialogButtonBox::Close);
@@ -26,4 +28,7 @@ SettingsDialog::SettingsDialog(const QString &title, LXQt::Settings *settings, Q
 
     //DaemonSettings *daemon = new DaemonSettings(settings, this);
     //addPage(daemon, QObject::tr("Daemon"), "system-run");
+    
+    ManageSavedSettings * savedSettings = new ManageSavedSettings(settings, config, this);
+    addPage(savedSettings, QObject::tr("Manage Saved Settings"), "system-run");
 }

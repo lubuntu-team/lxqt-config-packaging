@@ -24,18 +24,16 @@
 #include <KScreen/Config>
 #include <KScreen/GetConfigOperation>
 #include <KScreen/SetConfigOperation>
-#include <QJsonObject>
-#include <QJsonArray>
-#include <QSettings>
-#include <QJsonDocument>
+#include <LXQt/Settings>
 #include <KScreen/EDID>
-
-
+#include <QThread>
+#include <QCoreApplication>
 
 
 LoadSettings::LoadSettings(QObject *parent):QObject(parent)
 {
-    KScreen::GetConfigOperation *operation = new KScreen::GetConfigOperation();
+    QThread::sleep(10); // KScreen is  slow loading screen modes
+    KScreen::GetConfigOperation *operation  = new KScreen::GetConfigOperation();
     connect(operation, &KScreen::GetConfigOperation::finished, [this, operation] (KScreen::ConfigOperation *op) {
         KScreen::GetConfigOperation *configOp = qobject_cast<KScreen::GetConfigOperation *>(op);
         if (configOp)
@@ -48,35 +46,62 @@ LoadSettings::LoadSettings(QObject *parent):QObject(parent)
 
 void LoadSettings::loadConfiguration(KScreen::ConfigPtr config)
 {
-    QSettings settings("LXQt", "lxqt-config-monitor");
-    QJsonDocument document = QJsonDocument::fromJson( settings.value("currentConfig").toByteArray() );
-    QJsonObject json = document.object();
-    QJsonArray array = json["outputs"].toArray();
+    LXQt::Settings settings("lxqt-config-monitor");
+    QList<MonitorSettings> monitors;
+    settings.beginGroup("currentConfig");
+    loadMonitorSettings(settings, monitors);
+    settings.endGroup();
+
+    applySettings(config, monitors);
+}
+
+
+void applySettings(KScreen::ConfigPtr config, QList<MonitorSettings> monitors)
+{
     KScreen::OutputList outputs = config->outputs();
     for (const KScreen::OutputPtr &output : outputs)
     {
         qDebug() << "Output: " << output->name();
-        for(int i=0;i<array.size();i++)
+        for(int i=0;i<monitors.size();i++)
         {
-            QJsonObject monitorSettings = array[i].toObject();
-            if( monitorSettings["name"] == output->name() )
+            MonitorSettings monitor = monitors[i];
+            if( monitor.name == output->name() )
             {
                 KScreen::Edid* edid = output->edid();
                 if (edid && edid->isValid())
-                    if( monitorSettings["hash"].toString() != edid->hash() )
+                    if( monitor.hash != edid->hash() )
                     {
-                        qDebug() << "Hash: " << monitorSettings["hash"].toString() << "==" << edid->hash();
-                        return exit(1); // Saved settings are from other monitor
+                        qDebug() << "Hash: " << monitor.hash << "==" << edid->hash();
+                        return QCoreApplication::instance()->exit(1); // Saved settings are from other monitor
                     }
-                if( monitorSettings["connected"].toBool() != output->isConnected() )
-                    return exit(2); // Saved settings are from other monitor
+                if( monitor.connected != output->isConnected() )
+                    return QCoreApplication::instance()->exit(2); // Saved settings are from other monitor
                 if( !output->isConnected() )
                     continue;
-                output->setEnabled( monitorSettings["enabled"].toBool() );
-                output->setPrimary( monitorSettings["primary"].toBool() );
-                output->setPos( QPoint(monitorSettings["xPos"].toInt(),monitorSettings["yPos"].toInt()) );
-                output->setCurrentModeId( monitorSettings["currentMode"].toString() );
-                output->setRotation( (KScreen::Output::Rotation)(monitorSettings["rotation"].toInt()) );
+                output->setEnabled( monitor.enabled );
+                output->setPrimary( monitor.primary );
+                output->setPos( QPoint(monitor.xPos, monitor.yPos) );
+                output->setRotation( (KScreen::Output::Rotation)(monitor.rotation) );
+                // output->setCurrentModeId could fail. KScreen sometimes changes mode Id.
+                KScreen::ModeList modeList = output->modes();
+                foreach(const KScreen::ModePtr &mode, modeList)
+                {
+                    if( mode->id() == QString(monitor.currentMode) 
+                            ||
+                            (
+                                mode->size().width() == monitor.currentModeWidth
+                                    &&
+                                mode->size().height() == monitor.currentModeHeight 
+                                    && 
+                                mode->refreshRate() == monitor.currentModeRate 
+                            )
+                      )
+                    {
+                        output->setCurrentModeId( mode->id() );
+                        break;
+                    }
+                }
+
             }
         }
     }
@@ -84,6 +109,6 @@ void LoadSettings::loadConfiguration(KScreen::ConfigPtr config)
     if (KScreen::Config::canBeApplied(config))
         KScreen::SetConfigOperation(config).exec();
 
-    exit(0);
+    QCoreApplication::instance()->exit(0);
 }
 
