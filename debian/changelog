@@ -1,3 +1,19 @@
+lxqt-config (0.11.1-1) unstable; urgency=medium
+
+  * Chery-picking new upstream release 0.11.1.
+  * Removed some build dependencies:
+    -cmake
+    -libqt5xdg-dev
+    -libqt5xdgiconloader-dev
+    -pkg-config
+    -qttools5-dev
+    -qttools5-dev-tools
+  * Bumped build dependency liblxqt0-dev (>= 0.11.1)
+  * Bumped years in d/copyright
+  * Added Recommends galternatives
+
+ -- Alf Gaida <agaida@siduction.org>  Mon, 02 Jan 2017 12:36:49 +0100
+
 lxqt-config (0.11.0-2) unstable; urgency=medium
 
   * Chery-picking new upstream release 0.11.0
