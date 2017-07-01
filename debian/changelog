@@ -1,3 +1,16 @@
+lxqt-config (0.11.1-2) unstable; urgency=medium
+
+  * Bump Standards to 4.0.0 - no changes needed
+  * Recommend lxqt-qtplugin (Closes: #866234)
+  * Recommend lxqt-policykit (Closes: #866739)
+  * Recommend lxqt-session and lxqt-powermanagement (Closes: #866760)
+  * Recommend galternatives and systemconfig-printer, suggest
+    diskmanager, gparted, networkmanagement, synaptic (Closes: #866763)
+  * Recommend qt5-style-plugins and suggest adwaita-qt (Closes: #866774)
+  * Suggest gnome-themes-standard and faenza-icon-theme (Closes: #866775)
+
+ -- Alf Gaida <agaida@siduction.org>  Sat, 01 Jul 2017 18:24:12 +0200
+
 lxqt-config (0.11.1-1) unstable; urgency=medium
 
   * Chery-picking new upstream release 0.11.1.
