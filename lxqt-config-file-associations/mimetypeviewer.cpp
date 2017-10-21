@@ -107,12 +107,13 @@ MimetypeViewer::MimetypeViewer(QWidget *parent)
     connect(widget.chooseApplicationsButton, SIGNAL(clicked()), this, SLOT(chooseApplication()));
     connect(widget.dialogButtonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(dialogButtonBoxClicked(QAbstractButton*)));
 
-    QString mimeappsListPath(XdgDirs::dataHome(true) + "/applications/mimeapps.list");
+    QString mimeappsListPath(XdgDirs::configHome(true) + "/mimeapps.list");
     mDefaultsList = new QSettings(mimeappsListPath, XdgDesktopFileCache::desktopFileSettingsFormat(), this);
     mSettingsCache = new LXQt::SettingsCache(mDefaultsList);
     mSettingsCache->loadFromSettings();
     initializeMimetypeTreeView();
     loadAllMimeTypes();
+    widget.searchTermLineEdit->setFocus();
 
     connect(widget.mimetypeTreeWidget, SIGNAL(itemSelectionChanged()),
             this, SLOT(currentMimetypeChanged()));
@@ -146,7 +147,6 @@ void MimetypeViewer::initializeMimetypeTreeView()
 {
     currentMimetypeChanged();
     widget.mimetypeTreeWidget->setColumnCount(2);
-    widget.mimetypeTreeWidget->setFocus();
     widget.searchTermLineEdit->setEnabled(true);
 }
 

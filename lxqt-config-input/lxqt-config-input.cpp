@@ -19,6 +19,7 @@
 #include <LXQt/SingleApplication>
 #include <LXQt/ConfigDialog>
 #include <LXQt/Settings>
+#include <QCommandLineParser>
 #include "mouseconfig.h"
 #include "keyboardconfig.h"
 #include "../liblxqt-config-cursor/selectwnd.h"
@@ -26,6 +27,17 @@
 
 int main(int argc, char** argv) {
     LXQt::SingleApplication app(argc, argv);
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+
+    QCommandLineParser parser;
+    parser.setApplicationDescription(QStringLiteral("LXQt Config Input"));
+    const QString VERINFO = QStringLiteral(LXQT_CONFIG_VERSION
+                                           "\n\nliblxqt:   " LXQT_VERSION
+                                           "\nQt:        " QT_VERSION_STR);
+    app.setApplicationVersion(VERINFO);
+    parser.addVersionOption();
+    parser.addHelpOption();
+    parser.process(app);
 
     QByteArray configName = qgetenv("LXQT_SESSION_CONFIG");
     if(configName.isEmpty())
