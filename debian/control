@@ -9,7 +9,7 @@ Priority: optional
 Build-Depends: debhelper (>= 10),
                libkf5screen-dev,
                libkf5windowsystem-dev,
-               liblxqt0-dev (>= 0.11.1),
+               liblxqt0-dev (>= 0.12.0),
                libqt5svg5-dev,
                libqt5x11extras5-dev,
                libx11-dev,
@@ -17,7 +17,7 @@ Build-Depends: debhelper (>= 10),
                libxfixes-dev,
                qtbase5-private-dev,
                zlib1g-dev
-Standards-Version: 4.0.0
+Standards-Version: 4.1.1
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-lxqt/lxqt-config.git/?h=debian/sid
 Vcs-Git: https://anonscm.debian.org/git/pkg-lxqt/lxqt-config.git -b debian/sid
 Homepage: https://github.com/lxde/lxqt-config

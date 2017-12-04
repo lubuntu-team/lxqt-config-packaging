@@ -1,3 +1,20 @@
+lxqt-config (0.12.0-2) unstable; urgency=medium
+
+  * Transition to unstable
+  * Drop no longer needed patches
+
+ -- Alf Gaida <agaida@siduction.org>  Mon, 04 Dec 2017 21:33:59 +0100
+
+lxqt-config (0.12.0-1) experimental; urgency=medium
+
+  * Cherry-picking upstream release: 0.12.0.
+  * Switched to experimental
+  * Bumped Standards to 4.1.1
+  * Bumped liblxqt to >= 0.12.0
+  * Removed debian/patches - back to pure upstream
+
+ -- Alf Gaida <agaida@siduction.org>  Tue, 24 Oct 2017 16:56:57 +0200
+
 lxqt-config (0.11.1-4) unstable; urgency=medium
 
   * Ported back some upstream changes. (Closes: #871154)
