@@ -27,11 +27,24 @@
 
 #include <LXQt/Settings>
 #include <LXQt/ConfigDialog>
+#include <QCommandLineParser>
 #include "localeconfig.h"
 
 int main (int argc, char **argv)
 {
     LXQt::SingleApplication app(argc, argv);
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+
+    QCommandLineParser parser;
+    parser.setApplicationDescription(QStringLiteral("LXQt Config Locale"));
+    const QString VERINFO = QStringLiteral(LXQT_CONFIG_VERSION
+                                           "\nliblxqt   " LXQT_VERSION
+                                           "\nQt        " QT_VERSION_STR);
+    app.setApplicationVersion(VERINFO);
+    parser.addVersionOption();
+    parser.addHelpOption();
+    parser.process(app);
+
     LXQt::Settings settings("lxqt-config-locale");
     LXQt::Settings session_settings("session");
     LXQt::ConfigDialog* dialog = new LXQt::ConfigDialog(QObject::tr("LXQt Locale Configuration"), &settings);
@@ -49,4 +62,3 @@ int main (int argc, char **argv)
 
     return app.exec();
 }
-
