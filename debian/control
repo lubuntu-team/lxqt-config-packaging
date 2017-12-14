@@ -17,9 +17,9 @@ Build-Depends: debhelper (>= 10),
                libxfixes-dev,
                qtbase5-private-dev,
                zlib1g-dev
-Standards-Version: 4.1.1
-Vcs-Browser: https://anonscm.debian.org/cgit/pkg-lxqt/lxqt-config.git/?h=debian/sid
-Vcs-Git: https://anonscm.debian.org/git/pkg-lxqt/lxqt-config.git -b debian/sid
+Standards-Version: 4.1.2
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-lxqt/lxqt-config.git
+Vcs-Git: https://anonscm.debian.org/git/pkg-lxqt/lxqt-config.git
 Homepage: https://github.com/lxde/lxqt-config
 
 Package: lxqt-config
