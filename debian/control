@@ -7,10 +7,10 @@ Uploaders: Alf Gaida <agaida@siduction.org>,
            Yukiharu YABUKI <yyabuki@debian.org>
 Section: x11
 Priority: optional
-Build-Depends: debhelper (>= 11~),
+Build-Depends: debhelper (>= 11),
                libkf5screen-dev,
                libkf5windowsystem-dev,
-               liblxqt0-dev (>= 0.12.0),
+               liblxqt0-dev (>= 0.13.0),
                libqt5svg5-dev,
                libqt5x11extras5-dev,
                libx11-dev,
