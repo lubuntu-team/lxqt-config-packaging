@@ -1,3 +1,9 @@
+lxqt-config (0.13.0-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Tue, 22 May 2018 21:42:34 -0500
+
 lxqt-config (0.12.0-4) unstable; urgency=medium
 
   * Bumped compat to 11
