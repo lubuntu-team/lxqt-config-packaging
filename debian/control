@@ -24,8 +24,7 @@ Homepage: https://github.com/lxqt/lxqt-config
 
 Package: lxqt-config
 Architecture: any
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Recommends: disk-manager,
             galternatives,
             lxqt-config-l10n,
@@ -36,12 +35,12 @@ Recommends: disk-manager,
             qt5-style-plugins,
             system-config-printer
 Suggests: adwaita-qt,
+          cmst [linux-any] | network-manager-gnome [linux-any],
           faenza-icon-theme,
           gnome-themes-standard,
           gparted | partitionmanager [linux-any],
-          cmst [linux-any] | network-manager-gnome [linux-any],
-          lxqt | lxqt-core,
           lxappearance,
+          lxqt | lxqt-core,
           obconf-qt,
           synaptic
 Description: LXQt system settings center
