@@ -32,7 +32,6 @@ Recommends: disk-manager,
             lxqt-powermanagement,
             lxqt-qtplugin,
             lxqt-session,
-            qt5-style-plugins,
             system-config-printer
 Suggests: adwaita-qt,
           cmst [linux-any] | network-manager-gnome [linux-any],
@@ -42,6 +41,7 @@ Suggests: adwaita-qt,
           lxappearance,
           lxqt | lxqt-core,
           obconf-qt,
+          qt5-style-plugins,
           synaptic
 Description: LXQt system settings center
  The LXQt system settings center
