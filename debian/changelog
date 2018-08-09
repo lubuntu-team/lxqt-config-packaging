@@ -1,10 +1,10 @@
-lxqt-config (0.13.0-0ubuntu3) UNRELEASED; urgency=medium
+lxqt-config (0.13.0-0ubuntu3) cosmic; urgency=medium
 
   * Run wrap-and-sort.
   * Demote qt5-style-plugins to a Suggests, because some of the themes are not
     working (LP: #1785401).
 
- -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 09 Aug 2018 14:13:33 -0500
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 09 Aug 2018 14:24:44 -0500
 
 lxqt-config (0.13.0-0ubuntu2) cosmic; urgency=medium
 
