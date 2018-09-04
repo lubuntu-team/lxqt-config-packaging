@@ -2,7 +2,7 @@ lxqt-config (0.13.0-0ubuntu4) cosmic; urgency=medium
 
   * Make a path for GTK settings if it does not exist.
 
- -- Walter Lapchynski <wxl@ubuntu.com>  Mon, 03 Sep 2018 07:43:25 +0000
+ -- Walter Lapchynski <wxl@ubuntu.com>  Mon, 03 Sep 2018 00:43:25 -7000
 
 lxqt-config (0.13.0-0ubuntu3) cosmic; urgency=medium
 
