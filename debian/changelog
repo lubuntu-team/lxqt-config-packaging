@@ -1,6 +1,6 @@
 lxqt-config (0.13.0-0ubuntu5) cosmic; urgency=medium
 
-  * Set default GTK theme if rc file doesn't exists. 
+  * Set default GTK theme if rc file doesn't exists.
 
  -- Hans P. Möller <hmoller@gmail.com>  Thu, 04 Oct 2018 14:44:03 -0300
 
