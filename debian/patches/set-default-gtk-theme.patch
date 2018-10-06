@@ -1,0 +1,72 @@
+Description: Set default GTK theme if rc file doesn't exists.
+Author: P.L. Lucas <selairi@gmail.com>
+Applied-Upstream: https://github.com/lxqt/lxqt-config/commit/4c3ad403dc14dde4fe41e56cf3272ac11e30346f
+Last-Update: 2018-10-05
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/lxqt-config-appearance/configothertoolkits.cpp
++++ b/lxqt-config-appearance/configothertoolkits.cpp
+@@ -34,6 +34,7 @@
+ #include <QFont>
+ #include <QDateTime>
+ #include <QMessageBox>
++#include <QProcess>
+ 
+ #include <sys/types.h>
+ #include <signal.h>
+@@ -246,7 +247,7 @@ QString ConfigOtherToolKits::getGTKTheme
+         QFile file(gtkrcPath);
+         if(file.exists()) {
+             if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+-                return QString();
++                return getDefaultGTKTheme();
+             while (!file.atEnd()) {
+                 QByteArray line = file.readLine().trimmed();
+                 if(line.startsWith("gtk-theme-name")) {
+@@ -264,7 +265,7 @@ QString ConfigOtherToolKits::getGTKTheme
+         QFile file(gtkrcPath);
+         if(file.exists()) {
+             if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+-                return QString();
++                return getDefaultGTKTheme();
+             bool settingsFound = false;
+             while (!file.atEnd()) {
+                 QByteArray line = file.readLine().trimmed();
+@@ -283,7 +284,26 @@ QString ConfigOtherToolKits::getGTKTheme
+             file.close();
+         }
+     }
+-    return QString();
++    return getDefaultGTKTheme();
++}
++
++QString ConfigOtherToolKits::getDefaultGTKTheme()
++{
++    // Get the GTK default theme. Command line:
++    // $ gsettings get org.gnome.desktop.interface gtk-theme
++    QProcess gsettings;
++    QStringList args;
++    args << "get" << "org.gnome.desktop.interface" << "gtk-theme";
++    gsettings.start("gsettings", args);
++    if(! gsettings.waitForFinished())
++        return QString();
++    QByteArray defaultTheme = gsettings.readAll().trimmed();
++    gsettings.close();
++    if(defaultTheme.size() <= 1)
++        return QString();
++    // The theme has got quotation marks. Remove it:
++    defaultTheme.replace("'","");
++    return QString(defaultTheme);
+ }
+ 
+ void ConfigOtherToolKits::updateConfigFromSettings()
+--- a/lxqt-config-appearance/configothertoolkits.h
++++ b/lxqt-config-appearance/configothertoolkits.h
+@@ -42,6 +42,7 @@ public:
+     QString getGTKThemeFromRCFile(QString version);
+     QString getGTKConfigPath(QString version);
+     bool backupGTKSettings(QString version);
++    QString getDefaultGTKTheme();
+ 
+ public slots:
+     void setConfig();

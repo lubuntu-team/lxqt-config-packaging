@@ -1,2 +1,3 @@
 gtk-appearance-settings.patch
+set-default-gtk-theme.patch
 mkpath-for-null-gtk-settings.patch
