@@ -45,6 +45,8 @@ Suggests: adwaita-qt,
           obconf-qt,
           qt5-style-plugins,
           synaptic
+Conflicts: lxqt-config-l10n (<= 0.13.0-0ubuntu1)
+Replaces: lxqt-config-l10n (<= 0.13.0-0ubuntu1)
 Description: LXQt system settings center
  The LXQt system settings center
  .
