@@ -1,6 +1,7 @@
 lxqt-config (0.13.0+git20181226-0ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream Git snapshot.
+    - Remove reverse-applicable patches.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 30 Dec 2018 16:39:06 -0600
 
