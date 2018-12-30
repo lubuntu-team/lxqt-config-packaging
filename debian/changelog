@@ -4,6 +4,7 @@ lxqt-config (0.13.0+git20181226-0ubuntu1) UNRELEASED; urgency=medium
     - Remove reverse-applicable patches.
     - Add a patch lowering the LXQt version required.
     - Add missing build dependencies.
+  * Bump Standards-version to 4.3.0, no changes needed.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 30 Dec 2018 16:39:06 -0600
 
