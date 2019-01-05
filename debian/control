@@ -29,7 +29,6 @@ Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Recommends: disk-manager,
             galternatives,
-            lxqt-config-l10n,
             lxqt-policykit,
             lxqt-powermanagement,
             lxqt-qtplugin,

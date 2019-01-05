@@ -1,3 +1,9 @@
+lxqt-config (0.13.0+git20181226-0ubuntu3) UNRELEASED; urgency=medium
+
+  * Don't recommend lxqt-config-l10n and conflict it at the same time.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 05 Jan 2019 15:07:40 -0600
+
 lxqt-config (0.13.0+git20181226-0ubuntu2) disco; urgency=medium
 
   * Add Conflicts/Replaces for lxqt-config-l10n.
