@@ -2,6 +2,7 @@ lxqt-config (0.14.0-0ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream release.
     - Bump build dependencies.
+    - Remove unneeded patches.
   * Bump debhelper compat to 12, no changes needed.
   * Add new lxqt-config-l10n package.
 
