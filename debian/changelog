@@ -1,6 +1,7 @@
 lxqt-config (0.14.0-0ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream release.
+    - Bump build dependencies.
   * Bump debhelper compat to 12, no changes needed.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 26 Jan 2019 00:01:01 -0600
