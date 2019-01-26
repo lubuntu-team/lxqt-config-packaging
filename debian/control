@@ -4,7 +4,7 @@ XSBC-Original-Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debia
 Uploaders: Simon Quigley <tsimonq2@ubuntu.com>
 Section: x11
 Priority: optional
-Build-Depends: debhelper (>= 11),
+Build-Depends: debhelper (>= 12),
                libkf5screen-dev,
                libkf5windowsystem-dev,
                liblxqt0-dev (>= 0.13.0),
