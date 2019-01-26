@@ -44,9 +44,18 @@ Suggests: adwaita-qt,
           obconf-qt,
           qt5-style-plugins,
           synaptic
-Conflicts: lxqt-config-l10n (<= 0.13.0-0ubuntu1)
-Replaces: lxqt-config-l10n (<= 0.13.0-0ubuntu1)
 Description: LXQt system settings center
  The LXQt system settings center
  .
  This package contain the LXQt configuration ui.
+
+Package: lxqt-config-l10n
+Architecture: all
+Multi-Arch: foreign
+Section: localization
+Depends: ${misc:Depends},
+         qttranslations5-l10n
+Breaks: lxqt-config (<< 0.11.0)
+Replaces: lxqt-config (<< 0.11.0)
+Description: Language package for lxqt-config
+ This package contains the l10n files needed by lxqt-config.
