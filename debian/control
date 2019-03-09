@@ -53,8 +53,7 @@ Package: lxqt-config-l10n
 Architecture: all
 Multi-Arch: foreign
 Section: localization
-Depends: ${misc:Depends},
-         qttranslations5-l10n
+Depends: qttranslations5-l10n, ${misc:Depends}
 Breaks: lxqt-config (<< 0.11.0)
 Replaces: lxqt-config (<< 0.11.0)
 Description: Language package for lxqt-config
