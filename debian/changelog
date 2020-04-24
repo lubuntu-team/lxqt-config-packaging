@@ -1,3 +1,9 @@
+lxqt-config (0.14.1-0ubuntu2) UNRELEASED; urgency=medium
+
+  * Add build dependency on libxcb-randr0-dev (Closes: #952266).
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 24 Apr 2020 00:23:48 -0500
+
 lxqt-config (0.14.1-0ubuntu1) disco; urgency=medium
 
   * New upstream release.
