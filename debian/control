@@ -7,7 +7,7 @@ Priority: optional
 Build-Depends: debhelper-compat (= 12),
                libkf5screen-dev,
                libkf5windowsystem-dev,
-               liblxqt0-dev (>= 0.14.0),
+               liblxqt0-dev (>= 0.15.0),
                libqt5svg5-dev,
                libqt5x11extras5-dev,
                libx11-dev,
