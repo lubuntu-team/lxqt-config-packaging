@@ -2,6 +2,7 @@ lxqt-config (0.15.0-0ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream release.
     - Add build dependency on libxcb-randr0-dev (Closes: #952266).
+  * Bump Standards-version to 4.5.0, no changes needed.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 24 Apr 2020 00:23:48 -0500
 
