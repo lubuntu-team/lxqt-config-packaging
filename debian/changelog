@@ -1,6 +1,7 @@
 lxqt-config (0.15.0-0ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream release.
+    - Update upstream signing key.
     - Add build dependency on libxcb-randr0-dev (Closes: #952266).
   * Bump Standards-version to 4.5.0, no changes needed.
   * debhelper -> debhelper-compat.
