@@ -4,10 +4,10 @@ XSBC-Original-Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debia
 Uploaders: Simon Quigley <tsimonq2@ubuntu.com>
 Section: x11
 Priority: optional
-Build-Depends: debhelper-compat (= 12),
+Build-Depends: debhelper-compat (= 13),
                libkf5screen-dev,
                libkf5windowsystem-dev,
-               liblxqt0-dev (>= 0.15.0),
+               liblxqt0-dev (>= 0.16.0~),
                libqt5svg5-dev,
                libqt5x11extras5-dev,
                libx11-dev,
@@ -27,9 +27,10 @@ Homepage: https://github.com/lxqt/lxqt-config
 
 Package: lxqt-config
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Recommends: disk-manager,
-            galternatives,
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: galternatives,
+            lxqt-config-l10n,
             lxqt-policykit,
             lxqt-powermanagement,
             lxqt-qtplugin,
