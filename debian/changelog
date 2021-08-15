@@ -1,3 +1,15 @@
+lxqt-config (0.17.1-0ubuntu1) impish; urgency=medium
+
+  * New upstream release 0.17.1
+  * Update debian/control
+    - Bump Standards-Version to 4.5.1
+    - Use liblxqt0-dev 0.17.0
+  * Rename tag for lintian override
+  * Update debian/copyright
+  * Run wrap-and-sort
+
+ -- apt-ghetto <apt-ghetto@protonmail.com>  Thu, 12 Aug 2021 17:03:12 +0200
+
 lxqt-config (0.16.1-1ubuntu1) hirsute; urgency=medium
 
   * New upstream version.
