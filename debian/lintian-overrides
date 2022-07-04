@@ -13,3 +13,12 @@ lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-con
 lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-locale.desktop
 lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-monitor.desktop
 lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config.desktop
+
+# there's no need for a keywords entry in the desktop files
+lxqt-config: desktop-entry-lacks-keywords-entry usr/share/applications/lxqt-config-appearance.desktop                                                                      
+lxqt-config: desktop-entry-lacks-keywords-entry usr/share/applications/lxqt-config-brightness.desktop                                                                      
+lxqt-config: desktop-entry-lacks-keywords-entry usr/share/applications/lxqt-config-file-associations.desktop                                                               
+lxqt-config: desktop-entry-lacks-keywords-entry usr/share/applications/lxqt-config-input.desktop                                                                           
+lxqt-config: desktop-entry-lacks-keywords-entry usr/share/applications/lxqt-config-locale.desktop                                                                          
+lxqt-config: desktop-entry-lacks-keywords-entry usr/share/applications/lxqt-config-monitor.desktop                                                                         
+lxqt-config: desktop-entry-lacks-keywords-entry usr/share/applications/lxqt-config.desktop 

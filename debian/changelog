@@ -1,6 +1,10 @@
 lxqt-config (1.1.0-0ubuntu2~ppa1) jammy; urgency=medium
 
   * Backport to Jammy.
+  * Overrode a bunch of Lintian messages about missing keywords entries in
+    the desktop files.
+    - Reasoning: There's no need for a keywords entry in any of these
+      desktop files as far as I can tell.
 
  -- Aaron Rainbolt <arraybolt3@gmail.com>  Mon, 04 Jul 2022 03:47:31 -0500
 
