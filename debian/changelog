@@ -8,6 +8,7 @@ lxqt-config (1.1.0-0ubuntu2~ppa1) jammy; urgency=medium
   * Bumped Standards-Version to 4.6.1, no changes necessary.
   * Removed obsolete "-Wl,--as-needed" linker flag.
   * Added "Rules-Requires-Root: no" to debian/control.
+  * Removed trailing whitespace from changelog.
 
  -- Aaron Rainbolt <arraybolt3@gmail.com>  Mon, 04 Jul 2022 03:47:31 -0500
 
@@ -369,4 +370,3 @@ lxqt-config (0.9.0+20150806-1) unstable; urgency=medium
   * Added README.source -- mention for License.
 
  -- Yukiharu YABUKI <yyabuki@debian.org>  Fri, 21 Aug 2015 19:40:47 +0900
-
