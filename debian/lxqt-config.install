@@ -14,7 +14,8 @@ usr/share/applications/lxqt-config-input.desktop
 usr/share/applications/lxqt-config-locale.desktop
 usr/share/applications/lxqt-config-monitor.desktop
 usr/share/applications/lxqt-config.desktop
-usr/share/icons/hicolor/48x48/apps/brightnesssettings.svg
 usr/share/desktop-directories/lxqt-settings-lxqt.directory
+usr/share/desktop-directories/lxqt-settings-other.directory
 usr/share/desktop-directories/lxqt-settings-system.directory
+usr/share/icons/hicolor/48x48/apps/brightnesssettings.svg
 usr/share/lxqt/icons/monitor.svg
