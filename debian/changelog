@@ -6,6 +6,7 @@ lxqt-config (1.1.0-0ubuntu2~ppa1) jammy; urgency=medium
     - Reasoning: There's no need for a keywords entry in any of these
       desktop files as far as I can tell.
   * Bumped Standards-Version to 4.6.1, no changes necessary.
+  * Removed obsolete "-Wl,--as-needed" linker flag.
 
  -- Aaron Rainbolt <arraybolt3@gmail.com>  Mon, 04 Jul 2022 03:47:31 -0500
 
