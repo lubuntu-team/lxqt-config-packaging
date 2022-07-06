@@ -11,7 +11,7 @@ lxqt-config (1.1.0-0ubuntu2~ppa1) jammy; urgency=medium
   * Removed trailing whitespace from changelog.
   * Updated copyright file.
     - Added Lubuntu Developers copyright.
-      Updated LXQt team copyright to 2012-2022.
+    -  Updated LXQt team copyright to 2012-2022.
   * Created debian/upstream/metadata file.
 
  -- Aaron Rainbolt <arraybolt3@gmail.com>  Mon, 04 Jul 2022 03:47:31 -0500
