@@ -1,3 +1,9 @@
+lxqt-config (1.1.0-0ubuntu2) kinetic; urgency=medium
+
+  * Enhancements to the theme list.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 11 Jun 2022 14:22:35 -0400
+
 lxqt-config (1.1.0-0ubuntu1) kinetic; urgency=medium
 
   * New upstream release.
