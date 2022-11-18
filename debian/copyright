@@ -3,10 +3,11 @@ Upstream-Name: lxqt-config
 Source: https://github.com/lxqt/lxqt-config
 
 Files: *
-Copyright: 2012-2019 LXQt team
-           2010-2012 Razor team
-           2013 Christian Surlykke
-           2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+Copyright: 2012-2020, LXQt team
+           2010-2012, Razor team
+           2013, Christian Surlykke
+           2014, Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+           2014, Luís Pereira <luis.artur.pereira@gmail.com>
 License: LGPL-2.1+
 
 Files: lxqt-config-appearance/iconthemeinfo.cpp
@@ -19,7 +20,8 @@ Copyright: 2007, 2009 Rafael Fernández López <ereslibre@kde.org>
            2007 John Tapsell <tapsell@kde.org>
 License: LGPL-2.0+
 
-Files: liblxqt-config-cursor/cfgfile.h
+Files: liblxqt-config-cursor/cfgfile.cpp
+       liblxqt-config-cursor/cfgfile.h
        liblxqt-config-cursor/main.cpp
        liblxqt-config-cursor/main.h
        liblxqt-config-cursor/selectwnd.cpp
@@ -59,7 +61,31 @@ Files: lxqt-config-input/keyboardconfig.cpp
 Copyright: 2013-2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 License: GPL-2.0+
 
-Files: lxqt-config-monitor/main.cpp
+Files: lxqt-config-input/touchpadconfig.cpp
+       lxqt-config-input/touchpadconfig.h
+       lxqt-config-input/touchpaddevice.cpp
+       lxqt-config-input/touchpaddevice.h
+Copyright: 2016-2018, Chih-Hsuan Yen <yan12125@gmail.com>
+License: GPL-2.0+
+
+Files: lxqt-config-locale/combobox.h
+Copyright: 2018, Pedram Pourang <tsujan2000@gmail.com>
+License: GPL-2.0+
+
+Files: lxqt-config-locale/localeconfig.cpp
+       lxqt-config-locale/localeconfig.h
+Copyright: 2014, LXQt team
+           2014, Sebastian Kügler <sebas@kde.org>
+License: GPL-2.0+
+
+Files: lxqt-config-monitor/fastmenu.cpp
+       lxqt-config-monitor/fastmenu.h
+       lxqt-config-monitor/kscreenutils.h
+       lxqt-config-monitor/loadsettings.cpp
+       lxqt-config-monitor/loadsettings.h
+       lxqt-config-monitor/main.cpp
+       lxqt-config-monitor/managesavedsettings.cpp
+       lxqt-config-monitor/managesavedsettings.h
        lxqt-config-monitor/monitor.cpp
        lxqt-config-monitor/monitor.h
        lxqt-config-monitor/monitorwidget.cpp
@@ -68,15 +94,26 @@ Files: lxqt-config-monitor/main.cpp
        lxqt-config-monitor/monitorsettingsdialog.cpp
        lxqt-config-monitor/monitorsettingsdialog.h
        lxqt-config-monitor/savesettings.cpp
-Copyright: 2014 P.L. Lucas <selairi@gmail.com>
+       lxqt-config-monitor/settingsdialog.cpp
+       lxqt-config-monitor/settingsdialog.h
+       lxqt-config-monitor/timeoutdialog.cpp
+       lxqt-config-monitor/timeoutdialog.h
+Copyright: 2014-2016, 2019, P.L. Lucas <selairi@gmail.com>
            2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 License: GPL-2.0+
 
 Files: lxqt-config-brightness/brightnesssettings.*
        lxqt-config-brightness/main.cpp
        lxqt-config-brightness/monitorinfo.*
+       lxqt-config-brightness/outputwidget.cpp
+       lxqt-config-brightness/outputwidget.h
 Copyright: 2016 P.L. Lucas <selairi@gmail.com>
 License: LGPL-2.1+
+
+Files: lxqt-config-brightness/brightnesswatcher.cpp
+       lxqt-config-brightness/brightnesswatcher.h
+Copyright: 2020, Luís Pereira <luis.artur.pereira@gmail.com>
+License: GPL-2.0+
 
 Files: lxqt-config-brightness/xrandrbrightness.*
 Copyright: 2015 Kai Uwe Broulik <kde@privat.broulik.de>
@@ -84,7 +121,7 @@ Copyright: 2015 Kai Uwe Broulik <kde@privat.broulik.de>
 License: LGPL-2.0+
 
 Files: debian/*
-Copyright: 2014-2020 Alf Gaida <agaida@siduction.org>
+Copyright: 2014-2018 Alf Gaida <agaida@siduction.org>
            2015      Andrew Lee (李健秋) <ajqlee@debian.org>
 License: LGPL-2.1+
 

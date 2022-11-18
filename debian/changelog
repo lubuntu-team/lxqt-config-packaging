@@ -1,14 +1,38 @@
-lxqt-config (1.1.0-1) experimental; urgency=medium
+lxqt-config (1.1.0-0ubuntu2) kinetic; urgency=medium
 
-  * Add debian/salsa-ci.yml file.
-  * Update debian/upstream/signing-key.asc.
-  * New upstream version 1.0.0
-  * New upstream version 1.1.0
-  * Build-deps on liblxqt1-dev (>= 1.1.0~).
-  * Drop lxqt-config (<< 0.11.0) from Breaks and Replaces.
-  * lxqt-config.install: ship lxqt-settings-other.directory file.
+  * Enhancements to the theme list.
 
- -- Andrew Lee (李健秋) <ajqlee@debian.org>  Wed, 13 Jul 2022 23:17:48 +0800
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 11 Jun 2022 14:22:35 -0400
+
+lxqt-config (1.1.0-0ubuntu1) kinetic; urgency=medium
+
+  * New upstream release.
+  * Bump build dependencies.
+  * Remove old Breaks/Replaces since we're past the LTS.
+  * Add a new entry to the install file.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Wed, 01 Jun 2022 15:00:38 -0500
+
+lxqt-config (0.17.1-0ubuntu1) impish; urgency=medium
+
+  * New upstream release 0.17.1
+  * Update debian/control
+    - Bump Standards-Version to 4.5.1
+    - Use liblxqt0-dev 0.17.0
+  * Rename tag for lintian override
+  * Update debian/copyright
+  * Run wrap-and-sort
+
+ -- apt-ghetto <apt-ghetto@protonmail.com>  Thu, 12 Aug 2021 17:03:12 +0200
+
+lxqt-config (0.16.1-1ubuntu1) hirsute; urgency=medium
+
+  * New upstream version.
+  * Updated recommends.
+  * Bumped debhelper-compat requirement to 13.
+  * Fixed manpage errors about files existing in debian/tmp but not installed anywhere.
+
+ -- Raman Sarda <theloudspeaker@disroot.org>  Sun, 21 Feb 2021 22:44:21 +0530
 
 lxqt-config (0.16.1-1) unstable; urgency=medium
 
@@ -19,6 +43,17 @@ lxqt-config (0.16.1-1) unstable; urgency=medium
   * Update debian/lxqt-config.install to ship new binary files.
 
  -- Andrew Lee (李健秋) <ajqlee@debian.org>  Wed, 06 Jan 2021 16:09:45 +0800
+
+lxqt-config (0.15.0-0ubuntu1) groovy; urgency=medium
+
+  * New upstream release.
+    - Update upstream signing key.
+    - Bump LXQt build dependencies.
+    - Add build dependency on libxcb-randr0-dev (Closes: #952266).
+  * Bump Standards-version to 4.5.0, no changes needed.
+  * debhelper -> debhelper-compat.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 04 Jun 2020 00:42:32 -0500
 
 lxqt-config (0.14.1-4) unstable; urgency=medium
 
@@ -51,6 +86,13 @@ lxqt-config (0.14.1-1) unstable; urgency=medium
 
  -- Alf Gaida <agaida@siduction.org>  Sun, 24 Feb 2019 20:35:48 +0100
 
+lxqt-config (0.14.1-0ubuntu1) disco; urgency=medium
+
+  * New upstream release.
+  * Run wrap-and-sort.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 09 Mar 2019 12:54:59 -0600
+
 lxqt-config (0.14.0-1) unstable; urgency=medium
 
   * Cherry-picking new upstream version 0.14.0.
@@ -68,6 +110,38 @@ lxqt-config (0.14.0-1) unstable; urgency=medium
 
  -- Alf Gaida <agaida@siduction.org>  Sun, 27 Jan 2019 17:15:29 +0100
 
+lxqt-config (0.14.0-0ubuntu1) disco; urgency=medium
+
+  * New upstream release.
+    - Bump build dependencies.
+    - Remove unneeded patches.
+  * Bump debhelper compat to 12, no changes needed.
+  * Add new lxqt-config-l10n package.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 26 Jan 2019 00:07:14 -0600
+
+lxqt-config (0.13.0+git20181226-0ubuntu3) disco; urgency=medium
+
+  * Don't recommend lxqt-config-l10n and conflict it at the same time.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 05 Jan 2019 15:08:01 -0600
+
+lxqt-config (0.13.0+git20181226-0ubuntu2) disco; urgency=medium
+
+  * Add Conflicts/Replaces for lxqt-config-l10n.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 30 Dec 2018 17:42:43 -0600
+
+lxqt-config (0.13.0+git20181226-0ubuntu1) disco; urgency=medium
+
+  * New upstream Git snapshot.
+    - Remove reverse-applicable patches.
+    - Add a patch lowering the LXQt version required.
+    - Add missing build dependencies.
+  * Bump Standards-version to 4.3.0, no changes needed.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 30 Dec 2018 17:21:31 -0600
+
 lxqt-config (0.13.0-1) unstable; urgency=medium
 
   * Cherry-picking new upstream version 0.13.0.
@@ -75,6 +149,42 @@ lxqt-config (0.13.0-1) unstable; urgency=medium
   * Added recommend xsettingsd
 
  -- Alf Gaida <agaida@siduction.org>  Thu, 24 May 2018 20:43:08 +0200
+
+lxqt-config (0.13.0-0ubuntu5) cosmic; urgency=medium
+
+  * Set default GTK theme if rc file doesn't exists.
+
+ -- Hans P. Möller <hmoller@gmail.com>  Thu, 04 Oct 2018 14:44:03 -0300
+
+lxqt-config (0.13.0-0ubuntu4) cosmic; urgency=medium
+
+  * Make a path for GTK settings if it does not exist.
+
+ -- Walter Lapchynski <wxl@ubuntu.com>  Mon, 03 Sep 2018 00:43:25 -7000
+
+lxqt-config (0.13.0-0ubuntu3) cosmic; urgency=medium
+
+  * Run wrap-and-sort.
+  * Demote qt5-style-plugins to a Suggests, because some of the themes are not
+    working (LP: #1785401).
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 09 Aug 2018 14:24:44 -0500
+
+lxqt-config (0.13.0-0ubuntu2) cosmic; urgency=medium
+
+  * Bump Standards-version to 4.1.5, no changes needed.
+  * Change Uploaders to Ubuntu uploaders.
+  * Add support for modifying GTK themes.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Mon, 30 Jul 2018 16:35:02 -0500
+
+lxqt-config (0.13.0-0ubuntu1) cosmic; urgency=medium
+
+  * New upstream release.
+  * Update Vcs-* and Maintainer to Lubuntu values.
+  * Update build dependencies.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Tue, 22 May 2018 23:25:36 -0500
 
 lxqt-config (0.12.0-4) unstable; urgency=medium
 
@@ -246,3 +356,4 @@ lxqt-config (0.9.0+20150806-1) unstable; urgency=medium
   * Added README.source -- mention for License.
 
  -- Yukiharu YABUKI <yyabuki@debian.org>  Fri, 21 Aug 2015 19:40:47 +0900
+

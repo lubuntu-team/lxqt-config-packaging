@@ -5,28 +5,14 @@ export LC_ALL=C.UTF-8
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
-include /usr/share/dpkg/architecture.mk
-
-ifeq ($(DEB_HOST_ARCH_OS), kfreebsd)
-    CONF_FLAGS += -DWITH_TOUCHPAD=NO
-endif
-
-ifeq ($(DEB_HOST_ARCH_OS), hurd)
-    CONF_FLAGS += -DWITH_TOUCHPAD=NO
-endif
-
-
 %:
 	dh ${@} --buildsystem cmake
 
-override_dh_missing:
-	dh_missing --fail-missing
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-DPULL_TRANSLATIONS=OFF \
+		-DUPDATE_TRANSLATIONS=OFF \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo
 
 override_dh_makeshlibs:
 	dh_makeshlibs -Xlxqt-config
-
-override_dh_auto_configure:
-	dh_auto_configure -- \
-		-DUPDATE_TRANSLATIONS=OFF \
-		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
-		$(CONF_FLAGS)
