@@ -5,6 +5,7 @@ lxqt-config (1.2.0-0ubuntu1) UNRELEASED; urgency=medium
   * Lubuntuify the package slightly, to make debhelper happy.
   * Bump Standards-version, no changes needed.
   * Bump build dependencies in debian/control.
+  * Drop reverse-applicable patch.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 18 Nov 2022 14:43:44 -0600
 
