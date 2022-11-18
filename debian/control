@@ -1,13 +1,15 @@
 Source: lxqt-config
-Maintainer: Lubuntu Developers <lubuntu-devel@lists.ubuntu.com>
-XSBC-Original-Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debian.org>
-Uploaders: Simon Quigley <tsimonq2@ubuntu.com>
+Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debian.org>
+Uploaders: Alf Gaida <agaida@siduction.org>,
+           ChangZhuo Chen (陳昌倬) <czchen@debian.org>,
+           Andrew Lee (李健秋) <ajqlee@debian.org>,
+           Yukiharu YABUKI <yyabuki@debian.org>
 Section: x11
 Priority: optional
-Build-Depends: debhelper-compat (= 13),
+Build-Depends: debhelper-compat (= 12),
                libkf5screen-dev,
                libkf5windowsystem-dev,
-               liblxqt1-dev (>= 1.1.0),
+               liblxqt1-dev (>= 1.1.0~),
                libqt5svg5-dev,
                libqt5x11extras5-dev,
                libx11-dev,
@@ -18,35 +20,36 @@ Build-Depends: debhelper-compat (= 13),
                qtbase5-private-dev,
                xserver-xorg-input-libinput-dev,
                zlib1g-dev
-Standards-Version: 4.5.1
-Vcs-Browser: https://phab.lubuntu.me/source/lxqt-config/
-Vcs-Git: https://phab.lubuntu.me/source/lxqt-config.git
-XS-Debian-Vcs-Browser: https://salsa.debian.org/lxqt-team/lxqt-config
-XS-Debian-Vcs-Git: https://salsa.debian.org/lxqt-team/lxqt-config.git
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/lxqt-team/lxqt-config
+Vcs-Git: https://salsa.debian.org/lxqt-team/lxqt-config.git
 Homepage: https://github.com/lxqt/lxqt-config
 
 Package: lxqt-config
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
 Recommends: galternatives,
             lxqt-config-l10n,
             lxqt-policykit,
             lxqt-powermanagement,
             lxqt-qtplugin,
             lxqt-session,
-            system-config-printer
+            qt5-style-plugins,
+            system-config-printer,
+            xsettingsd
 Suggests: adwaita-qt,
-          cmst [linux-any] | network-manager-gnome [linux-any],
           faenza-icon-theme,
           gnome-themes-standard,
           gparted | partitionmanager [linux-any],
-          lxappearance,
+          cmst [linux-any] | network-manager-gnome [linux-any],
           lxqt | lxqt-core,
+          lxappearance,
           obconf-qt,
-          qt5-style-plugins,
           synaptic
 Description: LXQt system settings center
- The LXQt system settings center
+ The LXQt system settings center which summarizes all configuration tools as
+ well as counterparts of other LXQt components or third-party applications.
  .
  This package contain the LXQt configuration ui.
 
@@ -54,6 +57,10 @@ Package: lxqt-config-l10n
 Architecture: all
 Multi-Arch: foreign
 Section: localization
-Depends: qttranslations5-l10n, ${misc:Depends}
+Depends: ${misc:Depends},
+         qttranslations5-l10n
 Description: Language package for lxqt-config
- This package contains the l10n files needed by lxqt-config.
+ The LXQt system settings center which summarizes all configuration tools as
+ well as counterparts of other LXQt components or third-party applications.
+ .
+ This package contains the l10n files needed by the lxqt-config.
