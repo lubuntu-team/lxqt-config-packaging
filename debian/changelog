@@ -2,6 +2,7 @@ lxqt-config (1.2.0-0ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream version.
   * Fix the watch file, for real this time.
+  * Lubuntuify the package slightly, to make debhelper happy.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 18 Nov 2022 14:43:44 -0600
 
