@@ -7,7 +7,7 @@ Priority: optional
 Build-Depends: debhelper-compat (= 13),
                libkf5screen-dev,
                libkf5windowsystem-dev,
-               liblxqt0-dev (>= 0.17.0),
+               liblxqt1-dev (>= 1.1.0),
                libqt5svg5-dev,
                libqt5x11extras5-dev,
                libx11-dev,
@@ -55,7 +55,5 @@ Architecture: all
 Multi-Arch: foreign
 Section: localization
 Depends: qttranslations5-l10n, ${misc:Depends}
-Breaks: lxqt-config (<< 0.11.0)
-Replaces: lxqt-config (<< 0.11.0)
 Description: Language package for lxqt-config
  This package contains the l10n files needed by lxqt-config.

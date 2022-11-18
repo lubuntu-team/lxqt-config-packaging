@@ -1,3 +1,12 @@
+lxqt-config (1.1.0-0ubuntu1) kinetic; urgency=medium
+
+  * New upstream release.
+  * Bump build dependencies.
+  * Remove old Breaks/Replaces since we're past the LTS.
+  * Add a new entry to the install file.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Wed, 01 Jun 2022 15:00:38 -0500
+
 lxqt-config (0.17.1-0ubuntu1) impish; urgency=medium
 
   * New upstream release 0.17.1
