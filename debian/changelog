@@ -1,4 +1,4 @@
-lxqt-config (1.2.0-0ubuntu1) UNRELEASED; urgency=medium
+lxqt-config (1.2.0-0ubuntu1) lunar; urgency=medium
 
   * New upstream version.
   * Fix the watch file, for real this time.
@@ -7,7 +7,7 @@ lxqt-config (1.2.0-0ubuntu1) UNRELEASED; urgency=medium
   * Bump build dependencies in debian/control.
   * Drop reverse-applicable patch.
 
- -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 18 Nov 2022 14:43:44 -0600
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 18 Nov 2022 17:09:36 -0600
 
 lxqt-config (1.1.0-0ubuntu2) kinetic; urgency=medium
 
