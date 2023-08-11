@@ -18,7 +18,7 @@ Build-Depends: debhelper-compat (= 13),
                qtbase5-private-dev,
                xserver-xorg-input-libinput-dev,
                zlib1g-dev
-Standards-Version: 4.6.1
+Standards-Version: 4.6.2
 Vcs-Browser: https://git.lubuntu.me/Lubuntu/lxqt-config-packaging
 Vcs-Git: https://git.lubuntu.me/Lubuntu/lxqt-config-packaging.git
 XS-Debian-Vcs-Browser: https://salsa.debian.org/lxqt-team/lxqt-config
