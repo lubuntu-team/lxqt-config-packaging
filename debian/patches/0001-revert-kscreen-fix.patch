@@ -1,0 +1,73 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d2f842c..77f98c2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,7 +26,7 @@ set(CMAKE_AUTOUIC ON)
+ set(CMAKE_AUTORCC ON)
+ 
+ set(KF5_MINIMUM_VERSION "5.36.0")
+-set(KF5SCREEN_MINIMUM_VERSION "5.27.0")
++set(KF5SCREEN_MINIMUM_VERSION "5.2.0")
+ set(LXQT_MINIMUM_VERSION "1.4.0")
+ set(QT_MINIMUM_VERSION "5.15.0")
+ 
+diff --git a/lxqt-config-monitor/kscreenutils.cpp b/lxqt-config-monitor/kscreenutils.cpp
+index 6deee2a..be2634d 100644
+--- a/lxqt-config-monitor/kscreenutils.cpp
++++ b/lxqt-config-monitor/kscreenutils.cpp
+@@ -63,9 +63,9 @@ void KScreenUtils::extended(KScreen::ConfigPtr &config)
+         output->setPos(pos);
+         output->setEnabled(true);
+         //first left one as primary
+-        output->setPriority(width == 0 ? 1 : 0);
++        output->setPrimary(width == 0);
+         KScreen::ModePtr mode(output->currentMode());
+-        //if (!mode)
++        //if (!mode) 
+         {
+             // Set the biggest mode between preferred modes and the first mode.
+             mode = output->modes().first();
+@@ -83,7 +83,7 @@ void KScreenUtils::extended(KScreen::ConfigPtr &config)
+             if (mode)
+                 output->setCurrentModeId(mode->id());
+         }
+-        if (mode)
++        if (mode) 
+             width += mode->size().width();
+     }
+ }
+diff --git a/lxqt-config-monitor/loadsettings.cpp b/lxqt-config-monitor/loadsettings.cpp
+index 26d669a..284cad0 100644
+--- a/lxqt-config-monitor/loadsettings.cpp
++++ b/lxqt-config-monitor/loadsettings.cpp
+@@ -133,7 +133,7 @@ bool applySettings(KScreen::ConfigPtr config, QList<MonitorSettings> monitors)
+                 if( !output->isConnected() )
+                     continue;
+                 output->setEnabled( monitor.enabled );
+-                output->setPriority( monitor.primary ? 1 : 0 );
++                output->setPrimary( monitor.primary );
+                 output->setPos( QPoint(monitor.xPos, monitor.yPos) );
+                 output->setRotation( (KScreen::Output::Rotation)(monitor.rotation) );
+                 // output->setCurrentModeId could fail. KScreen sometimes changes mode Id.
+diff --git a/lxqt-config-monitor/monitorwidget.cpp b/lxqt-config-monitor/monitorwidget.cpp
+index b4b7fb9..41883c2 100644
+--- a/lxqt-config-monitor/monitorwidget.cpp
++++ b/lxqt-config-monitor/monitorwidget.cpp
+@@ -138,7 +138,7 @@ MonitorWidget::MonitorWidget(KScreen::OutputPtr output, KScreen::ConfigPtr confi
+     if (config->connectedOutputs().count() == 1) {
+         setOnlyMonitor(true);
+         // There isn't always a primary output. Gross.
+-        output->setPriority(1);
++        output->setPrimary(true);
+     }
+ 
+     ui.xPosSpinBox->setValue(output->pos().x());
+@@ -208,7 +208,7 @@ void MonitorWidget::onBehaviorChanged(int idx)
+     ui.xPosSpinBox->setVisible(idx == ExtendDisplay);
+     ui.yPosSpinBox->setVisible(idx == ExtendDisplay);
+ 
+-    output->setPriority(idx == PrimaryDisplay ? 1 : 0);
++    output->setPrimary(idx == PrimaryDisplay);
+     if(idx == PrimaryDisplay)
+         emit primaryOutputChanged(this);
+ }

@@ -1,3 +1,9 @@
+lxqt-config (1.4.0-0ubuntu1~ppa2) jammy; urgency=medium
+
+  * Revert a kscreen change that caused build failures in Jammy.
+
+ -- Aaron Rainbolt <arraybolt3@gmail.com>  Mon, 13 Nov 2023 11:22:25 -0600
+
 lxqt-config (1.4.0-0ubuntu1~ppa1) jammy; urgency=medium
 
   * Backport to Jammy.
