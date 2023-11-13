@@ -1,15 +1,15 @@
 # there will be no man-pages in a foreseeable future
-lxqt-config: no-manual-page usr/bin/lxqt-config-brightness
-lxqt-config: no-manual-page usr/bin/lxqt-config-file-associations
-lxqt-config: no-manual-page usr/bin/lxqt-config-input
-lxqt-config: no-manual-page usr/bin/lxqt-config-locale
-lxqt-config: no-manual-page usr/bin/lxqt-config-monitor
+lxqt-config: no-manual-page [usr/bin/lxqt-config-brightness]
+lxqt-config: no-manual-page [usr/bin/lxqt-config-file-associations]
+lxqt-config: no-manual-page [usr/bin/lxqt-config-input]
+lxqt-config: no-manual-page [usr/bin/lxqt-config-locale]
+lxqt-config: no-manual-page [usr/bin/lxqt-config-monitor]
 
 # not a bug, LXQt has not reached free-desktop yet
-lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-appearance.desktop
-lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-brightness.desktop
-lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-file-associations.desktop
-lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-input.desktop
-lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-locale.desktop
-lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-monitor.desktop
-lxqt-config: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config.desktop
+lxqt-config: desktop-entry-invalid-category LXQt [usr/share/applications/lxqt-config-appearance.desktop]
+lxqt-config: desktop-entry-invalid-category LXQt [usr/share/applications/lxqt-config-brightness.desktop]
+lxqt-config: desktop-entry-invalid-category LXQt [usr/share/applications/lxqt-config-file-associations.desktop]
+lxqt-config: desktop-entry-invalid-category LXQt [usr/share/applications/lxqt-config-input.desktop]
+lxqt-config: desktop-entry-invalid-category LXQt [usr/share/applications/lxqt-config-locale.desktop]
+lxqt-config: desktop-entry-invalid-category LXQt [usr/share/applications/lxqt-config-monitor.desktop]
+lxqt-config: desktop-entry-invalid-category LXQt [usr/share/applications/lxqt-config.desktop]
