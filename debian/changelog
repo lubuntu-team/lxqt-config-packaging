@@ -2,11 +2,11 @@ lxqt-config (1.4.0-0ubuntu1) noble; urgency=medium
 
   * New upstream release.
   * Bumped build dependency versions.
-  * Add lxqt-menu-data as a build dependency.
-  * Remove no-longer-existing files from lxqt-config.install.
-  * Update lintian-overrides syntax.
+  * Added lxqt-menu-data as a build dependency.
+  * Removee no-longer-existing files from lxqt-config.install.
+  * Updated lintian-overrides syntax.
   * Removed obsolete '-Wl,--as-needed' linker flag.
-  * Create upstream/metadata file.
+  * Created upstream/metadata file.
 
  -- Aaron Rainbolt <arraybolt3@gmail.com>  Sun, 12 Nov 2023 18:12:05 -0600
 
