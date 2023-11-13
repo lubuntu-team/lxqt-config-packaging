@@ -15,6 +15,7 @@ Build-Depends: debhelper-compat (= 13),
                libxcursor-dev,
                libxfixes-dev,
                libxi-dev,
+               lxqt-menu-data (>= 1.4.0),
                qtbase5-private-dev,
                xserver-xorg-input-libinput-dev,
                zlib1g-dev
