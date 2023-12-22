@@ -1,0 +1,803 @@
+Description: Reorder XML .ui files to correct tab orders
+Author: isf63 <121320947+isf63@users.noreply.github.com>
+Origin: upstream, https://github.com/lxqt/lxqt-config/pull/950
+Applied-Upstream: b386674a2ab8fac75b5e0aed2bd2923de1ad16d2
+Last-Update: 2023-12-22
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/liblxqt-config-cursor/selectwnd.ui
++++ b/liblxqt-config-cursor/selectwnd.ui
+@@ -14,16 +14,19 @@
+    <string>LXQt Mouse Theme Configuration</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+-   <item row="5" column="3">
+-    <widget class="QPushButton" name="btInstall">
+-     <property name="enabled">
+-      <bool>false</bool>
+-     </property>
++   <item row="0" column="0" colspan="6">
++    <widget class="QLabel" name="infoLabel">
+      <property name="text">
+-      <string>&amp;Install New Theme...</string>
++      <string>Select the cursor theme you want to use (hover preview to test cursor). &lt;b&gt;LXQt session needs restart after this change&lt;/b&gt;:</string>
++     </property>
++     <property name="wordWrap">
++      <bool>true</bool>
+      </property>
+     </widget>
+    </item>
++   <item row="1" column="0" colspan="6">
++    <widget class="WarningLabel" name="warningLabel" native="true"/>
++   </item>
+    <item row="2" column="0" colspan="6">
+     <widget class="PreviewWidget" name="preview" native="true">
+      <property name="sizePolicy">
+@@ -40,16 +43,6 @@
+      </property>
+     </widget>
+    </item>
+-   <item row="0" column="0" colspan="6">
+-    <widget class="QLabel" name="infoLabel">
+-     <property name="text">
+-      <string>Select the cursor theme you want to use (hover preview to test cursor). &lt;b&gt;LXQt session needs restart after this change&lt;/b&gt;:</string>
+-     </property>
+-     <property name="wordWrap">
+-      <bool>true</bool>
+-     </property>
+-    </widget>
+-   </item>
+    <item row="3" column="0" colspan="6">
+     <widget class="QListView" name="lbThemes">
+      <property name="editTriggers">
+@@ -66,6 +59,13 @@
+      </property>
+     </widget>
+    </item>
++   <item row="5" column="0">
++    <widget class="QLabel" name="sizeLabel">
++     <property name="text">
++      <string>Size</string>
++     </property>
++    </widget>
++   </item>
+    <item row="5" column="1">
+     <widget class="QSpinBox" name="cursorSizeSpinBox">
+      <property name="toolTip">
+@@ -82,16 +82,6 @@
+      </property>
+     </widget>
+    </item>
+-   <item row="1" column="0" colspan="6">
+-    <widget class="WarningLabel" name="warningLabel" native="true"/>
+-   </item>
+-   <item row="5" column="4">
+-    <widget class="QPushButton" name="btRemove">
+-     <property name="text">
+-      <string>&amp;Remove Theme</string>
+-     </property>
+-    </widget>
+-   </item>
+    <item row="5" column="2">
+     <spacer>
+      <property name="orientation">
+@@ -105,10 +95,20 @@
+      </property>
+     </spacer>
+    </item>
+-   <item row="5" column="0">
+-    <widget class="QLabel" name="sizeLabel">
++   <item row="5" column="3">
++    <widget class="QPushButton" name="btInstall">
++     <property name="enabled">
++      <bool>false</bool>
++     </property>
+      <property name="text">
+-      <string>Size</string>
++      <string>&amp;Install New Theme...</string>
++     </property>
++    </widget>
++   </item>
++   <item row="5" column="4">
++    <widget class="QPushButton" name="btRemove">
++     <property name="text">
++      <string>&amp;Remove Theme</string>
+      </property>
+     </widget>
+    </item>
+@@ -127,11 +127,6 @@
+    <container>1</container>
+   </customwidget>
+  </customwidgets>
+- <tabstops>
+-  <tabstop>lbThemes</tabstop>
+-  <tabstop>btInstall</tabstop>
+-  <tabstop>btRemove</tabstop>
+- </tabstops>
+  <resources/>
+  <connections/>
+ </ui>
+--- a/lxqt-config-appearance/fontsconfig.ui
++++ b/lxqt-config-appearance/fontsconfig.ui
+@@ -47,20 +47,6 @@
+         </property>
+        </widget>
+       </item>
+-      <item row="2" column="0">
+-       <widget class="QLabel" name="label_7">
+-        <property name="text">
+-         <string>Point size:</string>
+-        </property>
+-       </widget>
+-      </item>
+-      <item row="2" column="1">
+-       <widget class="QSpinBox" name="fontSize">
+-        <property name="minimum">
+-         <number>4</number>
+-        </property>
+-       </widget>
+-      </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="fontStyle">
+         <item>
+@@ -85,6 +71,20 @@
+         </item>
+        </widget>
+       </item>
++      <item row="2" column="0">
++       <widget class="QLabel" name="label_7">
++        <property name="text">
++         <string>Point size:</string>
++        </property>
++       </widget>
++      </item>
++      <item row="2" column="1">
++       <widget class="QSpinBox" name="fontSize">
++        <property name="minimum">
++         <number>4</number>
++        </property>
++       </widget>
++      </item>
+      </layout>
+     </widget>
+    </item>
+@@ -101,15 +101,15 @@
+         </property>
+        </widget>
+       </item>
+-      <item row="3" column="0">
+-       <widget class="QLabel" name="label_3">
++      <item row="1" column="0">
++       <widget class="QLabel" name="label_4">
+         <property name="text">
+-         <string>Font hinting style:</string>
++         <string>Subpixel antialiasing:</string>
+         </property>
+        </widget>
+       </item>
+-      <item row="3" column="1">
+-       <widget class="QComboBox" name="hintStyle">
++      <item row="1" column="1">
++       <widget class="QComboBox" name="subpixel">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+@@ -120,17 +120,22 @@
+         </item>
+         <item>
+          <property name="text">
+-          <string>Slight</string>
++          <string>RGB</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+-          <string>Medium</string>
++          <string>BGR</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+-          <string>Full</string>
++          <string>VRGB</string>
++         </property>
++        </item>
++        <item>
++         <property name="text">
++          <string>VBGR</string>
+          </property>
+         </item>
+        </widget>
+@@ -142,39 +147,15 @@
+         </property>
+        </widget>
+       </item>
+-      <item row="5" column="0">
+-       <widget class="QLabel" name="label_5">
+-        <property name="text">
+-         <string>Resolution (DPI):</string>
+-        </property>
+-       </widget>
+-      </item>
+-      <item row="6" column="0" colspan="2">
+-       <widget class="QCheckBox" name="autohint">
+-        <property name="text">
+-         <string>Autohint</string>
+-        </property>
+-       </widget>
+-      </item>
+-      <item row="5" column="1">
+-       <widget class="QSpinBox" name="dpi">
+-        <property name="minimum">
+-         <number>-1</number>
+-        </property>
+-        <property name="maximum">
+-         <number>1048576</number>
+-        </property>
+-       </widget>
+-      </item>
+-      <item row="1" column="0">
+-       <widget class="QLabel" name="label_4">
++      <item row="3" column="0">
++       <widget class="QLabel" name="label_3">
+         <property name="text">
+-         <string>Subpixel antialiasing:</string>
++         <string>Font hinting style:</string>
+         </property>
+        </widget>
+       </item>
+-      <item row="1" column="1">
+-       <widget class="QComboBox" name="subpixel">
++      <item row="3" column="1">
++       <widget class="QComboBox" name="hintStyle">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+@@ -185,26 +166,45 @@
+         </item>
+         <item>
+          <property name="text">
+-          <string>RGB</string>
+-         </property>
+-        </item>
+-        <item>
+-         <property name="text">
+-          <string>BGR</string>
++          <string>Slight</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+-          <string>VRGB</string>
++          <string>Medium</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+-          <string>VBGR</string>
++          <string>Full</string>
+          </property>
+         </item>
+        </widget>
+       </item>
++      <item row="5" column="0">
++       <widget class="QLabel" name="label_5">
++        <property name="text">
++         <string>Resolution (DPI):</string>
++        </property>
++       </widget>
++      </item>
++      <item row="5" column="1">
++       <widget class="QSpinBox" name="dpi">
++        <property name="minimum">
++         <number>-1</number>
++        </property>
++        <property name="maximum">
++         <number>1048576</number>
++        </property>
++       </widget>
++      </item>
++      <item row="6" column="0" colspan="2">
++       <widget class="QCheckBox" name="autohint">
++        <property name="text">
++         <string>Autohint</string>
++        </property>
++       </widget>
++      </item>
+      </layout>
+     </widget>
+    </item>
+--- a/lxqt-config-appearance/gtkconfig.ui
++++ b/lxqt-config-appearance/gtkconfig.ui
+@@ -71,6 +71,16 @@
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <layout class="QFormLayout" name="formLayout_2">
++            <item row="1" column="0">
++             <widget class="QLabel" name="label_3">
++              <property name="text">
++               <string>GTK 2 Theme</string>
++              </property>
++             </widget>
++            </item>
++            <item row="1" column="1">
++             <widget class="QComboBox" name="gtk2ComboBox"/>
++            </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_4">
+               <property name="sizePolicy">
+@@ -87,16 +97,6 @@
+             <item row="2" column="1">
+              <widget class="QComboBox" name="gtk3ComboBox"/>
+             </item>
+-            <item row="1" column="0">
+-             <widget class="QLabel" name="label_3">
+-              <property name="text">
+-               <string>GTK 2 Theme</string>
+-              </property>
+-             </widget>
+-            </item>
+-            <item row="1" column="1">
+-             <widget class="QComboBox" name="gtk2ComboBox"/>
+-            </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="uniformThemeLabel">
+               <property name="text">
+--- a/lxqt-config-input/keyboardconfig.ui
++++ b/lxqt-config-input/keyboardconfig.ui
+@@ -14,13 +14,6 @@
+    <string>Form</string>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+-   <item row="2" column="0">
+-    <widget class="QLabel" name="label_2">
+-     <property name="text">
+-      <string>Cursor flash time:</string>
+-     </property>
+-    </widget>
+-   </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="label">
+      <property name="text">
+@@ -28,55 +21,23 @@
+      </property>
+     </widget>
+    </item>
+-   <item row="3" column="0" colspan="2">
+-    <widget class="QCheckBox" name="keyboardBeep">
+-     <property name="text">
+-      <string>Beep when there is an error of keyboard input</string>
+-     </property>
+-    </widget>
+-   </item>
+-   <item row="2" column="1">
+-    <widget class="QSpinBox" name="cursorFlashTime">
+-     <property name="suffix">
+-      <string> ms</string>
+-     </property>
+-     <property name="maximum">
+-      <number>10000</number>
+-     </property>
+-    </widget>
+-   </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string>Character Repeat</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+-      <item row="6" column="0" colspan="4">
+-       <widget class="QLineEdit" name="lineEdit"/>
+-      </item>
+-      <item row="2" column="2">
+-       <widget class="QSlider" name="keyboardInterval">
+-        <property name="minimum">
+-         <number>10</number>
+-        </property>
+-        <property name="maximum">
+-         <number>210</number>
+-        </property>
+-        <property name="singleStep">
+-         <number>10</number>
+-        </property>
+-        <property name="orientation">
+-         <enum>Qt::Horizontal</enum>
+-        </property>
+-        <property name="tickPosition">
+-         <enum>QSlider::TicksAbove</enum>
++      <item row="0" column="0">
++       <widget class="QLabel" name="label_7">
++        <property name="text">
++         <string>Repeat delay:</string>
+         </property>
+        </widget>
+       </item>
+-      <item row="0" column="3">
+-       <widget class="QLabel" name="label_12">
++      <item row="0" column="1">
++       <widget class="QLabel" name="label_10">
+         <property name="text">
+-         <string>Long</string>
++         <string>Short</string>
+         </property>
+        </widget>
+       </item>
+@@ -102,17 +63,17 @@
+         </property>
+        </widget>
+       </item>
+-      <item row="0" column="0">
+-       <widget class="QLabel" name="label_7">
++      <item row="0" column="3">
++       <widget class="QLabel" name="label_12">
+         <property name="text">
+-         <string>Repeat delay:</string>
++         <string>Long</string>
+         </property>
+        </widget>
+       </item>
+-      <item row="0" column="1">
+-       <widget class="QLabel" name="label_10">
++      <item row="0" column="4">
++       <widget class="QLabel" name="label_16">
+         <property name="text">
+-         <string>Short</string>
++         <string>0</string>
+         </property>
+        </widget>
+       </item>
+@@ -123,13 +84,6 @@
+         </property>
+        </widget>
+       </item>
+-      <item row="5" column="0" colspan="4">
+-       <widget class="QLabel" name="label_9">
+-        <property name="text">
+-         <string>Type in the following box to test your keyboard settings</string>
+-        </property>
+-       </widget>
+-      </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+@@ -137,6 +91,25 @@
+         </property>
+        </widget>
+       </item>
++      <item row="2" column="2">
++       <widget class="QSlider" name="keyboardInterval">
++        <property name="minimum">
++         <number>10</number>
++        </property>
++        <property name="maximum">
++         <number>210</number>
++        </property>
++        <property name="singleStep">
++         <number>10</number>
++        </property>
++        <property name="orientation">
++         <enum>Qt::Horizontal</enum>
++        </property>
++        <property name="tickPosition">
++         <enum>QSlider::TicksAbove</enum>
++        </property>
++       </widget>
++      </item>
+       <item row="2" column="3">
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+@@ -144,23 +117,50 @@
+         </property>
+        </widget>
+       </item>
+-      <item row="0" column="4">
+-       <widget class="QLabel" name="label_16">
++      <item row="2" column="4">
++       <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+-      <item row="2" column="4">
+-       <widget class="QLabel" name="label_17">
++      <item row="3" column="0" colspan="4">
++       <widget class="QLabel" name="label_9">
+         <property name="text">
+-         <string>0</string>
++         <string>Type in the following box to test your keyboard settings</string>
+         </property>
+        </widget>
+       </item>
++      <item row="4" column="0" colspan="4">
++       <widget class="QLineEdit" name="lineEdit"/>
++      </item>
+      </layout>
+     </widget>
+    </item>
++   <item row="2" column="0">
++    <widget class="QLabel" name="label_2">
++     <property name="text">
++      <string>Cursor flash time:</string>
++     </property>
++    </widget>
++   </item>
++   <item row="2" column="1">
++    <widget class="QSpinBox" name="cursorFlashTime">
++     <property name="suffix">
++      <string> ms</string>
++     </property>
++     <property name="maximum">
++      <number>10000</number>
++     </property>
++    </widget>
++   </item>
++   <item row="3" column="0" colspan="2">
++    <widget class="QCheckBox" name="keyboardBeep">
++     <property name="text">
++      <string>Beep when there is an error of keyboard input</string>
++     </property>
++    </widget>
++   </item>
+    <item row="4" column="0" colspan="2">
+     <widget class="QCheckBox" name="keyboardNumLock">
+      <property name="text">
+--- a/lxqt-config-input/touchpadconfig.ui
++++ b/lxqt-config-input/touchpadconfig.ui
+@@ -24,6 +24,13 @@
+    <item row="0" column="1">
+     <widget class="QComboBox" name="devicesComboBox"/>
+    </item>
++   <item row="1" column="1">
++    <widget class="QLabel" name="deviceInfoLabel">
++     <property name="text">
++      <string>DeviceInfoLabel</string>
++     </property>
++    </widget>
++   </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+@@ -31,6 +38,22 @@
+      </property>
+     </widget>
+    </item>
++   <item row="2" column="1">
++    <widget class="QDoubleSpinBox" name="accelSpeedDoubleSpinBox">
++     <property name="decimals">
++      <number>2</number>
++     </property>
++     <property name="minimum">
++      <double>-1.000000000000000</double>
++     </property>
++     <property name="maximum">
++      <double>1.000000000000000</double>
++     </property>
++     <property name="singleStep">
++      <double>0.100000000000000</double>
++     </property>
++    </widget>
++   </item>
+    <item row="4" column="0" colspan="2">
+     <widget class="QCheckBox" name="tappingEnabledCheckBox">
+      <property name="text">
+@@ -52,22 +75,6 @@
+      </property>
+     </widget>
+    </item>
+-   <item row="2" column="1">
+-    <widget class="QDoubleSpinBox" name="accelSpeedDoubleSpinBox">
+-     <property name="decimals">
+-      <number>2</number>
+-     </property>
+-     <property name="minimum">
+-      <double>-1.000000000000000</double>
+-     </property>
+-     <property name="maximum">
+-      <double>1.000000000000000</double>
+-     </property>
+-     <property name="singleStep">
+-      <double>0.100000000000000</double>
+-     </property>
+-    </widget>
+-   </item>
+    <item row="9" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+@@ -139,13 +146,6 @@
+      </item>
+     </layout>
+    </item>
+-   <item row="1" column="1">
+-    <widget class="QLabel" name="deviceInfoLabel">
+-     <property name="text">
+-      <string>DeviceInfoLabel</string>
+-     </property>
+-    </widget>
+-   </item>
+   </layout>
+  </widget>
+  <resources/>
+--- a/lxqt-config-monitor/managesavedsettings.ui
++++ b/lxqt-config-monitor/managesavedsettings.ui
+@@ -30,7 +30,14 @@
+         <item row="0" column="0">
+          <widget class="QListWidget" name="allConfigs"/>
+         </item>
+-        <item row="3" column="0">
++        <item row="0" column="1">
++         <widget class="QTextEdit" name="selectedSettingsTextEdit">
++          <property name="readOnly">
++           <bool>true</bool>
++          </property>
++         </widget>
++        </item>
++        <item row="1" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QPushButton" name="renamePushButton">
+@@ -48,13 +55,6 @@
+           </item>
+          </layout>
+         </item>
+-        <item row="0" column="1">
+-         <widget class="QTextEdit" name="selectedSettingsTextEdit">
+-          <property name="readOnly">
+-           <bool>true</bool>
+-          </property>
+-         </widget>
+-        </item>
+        </layout>
+       </widget>
+      </item>
+--- a/lxqt-config-monitor/monitorwidget.ui
++++ b/lxqt-config-monitor/monitorwidget.ui
+@@ -21,7 +21,42 @@
+        <string>Setup</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout">
+-       <item row="7" column="0" colspan="2">
++       <item row="0" column="0" colspan="2">
++        <widget class="QCheckBox" name="enabledCheckbox">
++         <property name="text">
++          <string>Enable this display</string>
++         </property>
++        </widget>
++       </item>
++       <item row="1" column="0" colspan="2">
++        <layout class="QHBoxLayout" name="horizontalLayout_4">
++         <item>
++          <widget class="QLabel" name="resolutionLabel">
++           <property name="text">
++            <string>Resolution:</string>
++           </property>
++          </widget>
++         </item>
++         <item>
++          <widget class="QComboBox" name="resolutionCombo"/>
++         </item>
++        </layout>
++       </item>
++       <item row="2" column="0" colspan="2">
++        <widget class="QComboBox" name="behaviorCombo">
++         <item>
++          <property name="text">
++           <string>This is my primary display</string>
++          </property>
++         </item>
++         <item>
++          <property name="text">
++           <string>This screen extends another display</string>
++          </property>
++         </item>
++        </widget>
++       </item>
++       <item row="3" column="0" colspan="2">
+         <layout class="QHBoxLayout" name="xyPosLayout">
+          <item>
+           <widget class="QSpinBox" name="xPosSpinBox">
+@@ -70,42 +105,7 @@
+          </item>
+         </layout>
+        </item>
+-       <item row="1" column="0" colspan="2">
+-        <layout class="QHBoxLayout" name="horizontalLayout_4">
+-         <item>
+-          <widget class="QLabel" name="resolutionLabel">
+-           <property name="text">
+-            <string>Resolution:</string>
+-           </property>
+-          </widget>
+-         </item>
+-         <item>
+-          <widget class="QComboBox" name="resolutionCombo"/>
+-         </item>
+-        </layout>
+-       </item>
+-       <item row="0" column="0" colspan="2">
+-        <widget class="QCheckBox" name="enabledCheckbox">
+-         <property name="text">
+-          <string>Enable this display</string>
+-         </property>
+-        </widget>
+-       </item>
+-       <item row="2" column="0" colspan="2">
+-        <widget class="QComboBox" name="behaviorCombo">
+-         <item>
+-          <property name="text">
+-           <string>This is my primary display</string>
+-          </property>
+-         </item>
+-         <item>
+-          <property name="text">
+-           <string>This screen extends another display</string>
+-          </property>
+-         </item>
+-        </widget>
+-       </item>
+-       <item row="8" column="0" colspan="2">
++       <item row="4" column="0" colspan="2">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+@@ -127,26 +127,6 @@
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="gridLayout_2">
+-         <item row="3" column="0" colspan="2">
+-          <spacer name="verticalSpacer_2">
+-           <property name="orientation">
+-            <enum>Qt::Vertical</enum>
+-           </property>
+-           <property name="sizeHint" stdset="0">
+-            <size>
+-             <width>20</width>
+-             <height>40</height>
+-            </size>
+-           </property>
+-          </spacer>
+-         </item>
+-         <item row="1" column="0">
+-          <widget class="QLabel" name="rateLabel">
+-           <property name="text">
+-            <string>Refresh rate:</string>
+-           </property>
+-          </widget>
+-         </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="orientationLabel">
+            <property name="text">
+@@ -157,6 +137,13 @@
+          <item row="0" column="1">
+           <widget class="QComboBox" name="orientationCombo"/>
+          </item>
++         <item row="1" column="0">
++          <widget class="QLabel" name="rateLabel">
++           <property name="text">
++            <string>Refresh rate:</string>
++           </property>
++          </widget>
++         </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="rateCombo">
+            <property name="sizePolicy">
+@@ -167,6 +154,19 @@
+            </property>
+           </widget>
+          </item>
++         <item row="3" column="0" colspan="2">
++          <spacer name="verticalSpacer_2">
++           <property name="orientation">
++            <enum>Qt::Vertical</enum>
++           </property>
++           <property name="sizeHint" stdset="0">
++            <size>
++             <width>20</width>
++             <height>40</height>
++            </size>
++           </property>
++          </spacer>
++         </item>
+         </layout>
+        </item>
+       </layout>

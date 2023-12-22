@@ -1,14 +1,15 @@
-lxqt-config (1.4.0-0ubuntu1~ppa2) jammy; urgency=medium
-
-  * Revert a kscreen change that caused build failures in Jammy.
-
- -- Aaron Rainbolt <arraybolt3@gmail.com>  Mon, 13 Nov 2023 11:22:25 -0600
-
-lxqt-config (1.4.0-0ubuntu1~ppa1) jammy; urgency=medium
+lxqt-config (1.4.0-0ubuntu2~ppa22.04.1) jammy; urgency=medium
 
   * Backport to Jammy.
 
- -- Aaron Rainbolt <arraybolt3@gmail.com>  Sun, 12 Nov 2023 18:12:05 -0600
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 22 Dec 2023 16:16:22 -0600
+
+lxqt-config (1.4.0-0ubuntu2) noble; urgency=medium
+
+  * Add two upstream patches to improve the user experience, especially around
+    monitor handling.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 22 Dec 2023 16:05:33 -0600
 
 lxqt-config (1.4.0-0ubuntu1) noble; urgency=medium
 
