@@ -1,3 +1,10 @@
+lxqt-config (1.4.0-0ubuntu2) noble; urgency=medium
+
+  * Add two upstream patches to improve the user experience, especially around
+    monitor handling.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 22 Dec 2023 16:05:33 -0600
+
 lxqt-config (1.4.0-0ubuntu1) noble; urgency=medium
 
   * New upstream release.
