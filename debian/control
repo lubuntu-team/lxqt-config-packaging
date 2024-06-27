@@ -5,19 +5,18 @@ Uploaders: Simon Quigley <tsimonq2@ubuntu.com>
 Section: x11
 Priority: optional
 Build-Depends: debhelper-compat (= 13),
-               libkf5screen-dev,
-               libkf5windowsystem-dev,
-               liblxqt1-dev (>= 1.4.0),
-               libqt5svg5-dev,
-               libqt5x11extras5-dev,
+               libkf6screen-dev,
+               libkf6windowsystem-dev,
+               liblxqt2-dev (>= 1.4.0),
                libx11-dev,
                libxcb-randr0-dev,
                libxcursor-dev,
                libxfixes-dev,
                libxi-dev,
-               lxqt-menu-data (>= 1.4.0),
-               qtbase5-private-dev,
+               lxqt-menu-data (>= 2.0.0),
                xserver-xorg-input-libinput-dev,
+               qt6-base-private-dev,
+               qt6-svg-dev,
                zlib1g-dev
 Standards-Version: 4.7.0
 Vcs-Browser: https://git.lubuntu.me/Lubuntu/lxqt-config-packaging
@@ -45,7 +44,6 @@ Suggests: adwaita-qt,
           lxappearance,
           lxqt | lxqt-core,
           obconf-qt,
-          qt5-style-plugins,
           synaptic
 Description: LXQt system settings center
  The LXQt system settings center
@@ -56,6 +54,6 @@ Package: lxqt-config-l10n
 Architecture: all
 Multi-Arch: foreign
 Section: localization
-Depends: qttranslations5-l10n, ${misc:Depends}
+Depends: qt6-translations-l10n, ${misc:Depends}
 Description: Language package for lxqt-config
  This package contains the l10n files needed by lxqt-config.
