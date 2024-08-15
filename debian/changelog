@@ -1,4 +1,4 @@
-lxqt-config (2.0.0-0ubuntu1~ppa1) oracular; urgency=medium
+lxqt-config (2.0.0-0ubuntu1) oracular; urgency=medium
 
   * New upstream release.
   * Update copyright file.
@@ -6,7 +6,7 @@ lxqt-config (2.0.0-0ubuntu1~ppa1) oracular; urgency=medium
   * Remove obsolete patches.
   * Adjust build dependencies.
 
- -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Wed, 26 Jun 2024 23:23:39 -0500
+ -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Thu, 15 Aug 2024 16:41:23 -0500
 
 lxqt-config (1.4.0-0ubuntu2) noble; urgency=medium
 
