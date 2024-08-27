@@ -5,7 +5,7 @@ Uploaders: Simon Quigley <tsimonq2@ubuntu.com>
 Section: x11
 Priority: optional
 Build-Depends: debhelper-compat (= 13),
-               libkf6screen-dev,
+               libkscreen-dev,
                libkf6windowsystem-dev,
                liblxqt2-dev (>= 1.4.0),
                libx11-dev,
