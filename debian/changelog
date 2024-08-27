@@ -1,4 +1,4 @@
-lxqt-config (2.0.0-0ubuntu2) UNRELEASED; urgency=medium
+lxqt-config (2.0.0-0ubuntu2) oracular; urgency=medium
 
   * Fix libkscreen build dep package name.
 
