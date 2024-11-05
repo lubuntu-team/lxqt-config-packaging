@@ -5,18 +5,18 @@ Uploaders: Simon Quigley <tsimonq2@ubuntu.com>
 Section: x11
 Priority: optional
 Build-Depends: debhelper-compat (= 13),
-               libkscreen-dev,
-               libkf6windowsystem-dev,
-               liblxqt2-dev (>= 1.4.0),
+               libkscreen-dev (>= 6.0.0),
+               libkf6windowsystem-dev (>= 6.0.0),
+               liblxqt2-dev (>= 2.1.0),
                libx11-dev,
                libxcb-randr0-dev,
                libxcursor-dev,
                libxfixes-dev,
                libxi-dev,
-               lxqt-menu-data (>= 2.0.0),
+               lxqt-menu-data (>= 2.1.0),
                xserver-xorg-input-libinput-dev,
-               qt6-base-private-dev,
-               qt6-svg-dev,
+               qt6-base-private-dev (>= 6.6.0),
+               qt6-svg-dev (>= 6.6.0),
                zlib1g-dev
 Standards-Version: 4.7.0
 Vcs-Browser: https://git.lubuntu.me/Lubuntu/lxqt-config-packaging
