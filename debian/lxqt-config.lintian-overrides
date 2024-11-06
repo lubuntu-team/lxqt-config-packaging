@@ -1,0 +1,4 @@
+# This is expected
+lxqt-config: desktop-entry-lacks-keywords-entry [usr/share/applications/*.desktop]
+lxqt-config: desktop-entry-invalid-category LXQt [usr/share/applications/*.desktop]
+lxqt-config: no-manual-page [usr/bin/*]

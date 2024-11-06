@@ -1,0 +1,2 @@
+# Translation files may be long
+lxqt-config source: very-long-line-length-in-source-file * > 512 [*.ts:*]

@@ -1,12 +1,12 @@
 Source: lxqt-config
 Maintainer: Lubuntu Developers <lubuntu-devel@lists.ubuntu.com>
-XSBC-Original-Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debian.org>
+Original-Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debian.org>
 Uploaders: Simon Quigley <tsimonq2@ubuntu.com>
 Section: x11
 Priority: optional
 Build-Depends: debhelper-compat (= 13),
-               libkscreen-dev (>= 6.0.0),
                libkf6windowsystem-dev (>= 6.0.0),
+               libkscreen-dev (>= 6.0.0),
                liblxqt2-dev (>= 2.1.0),
                libx11-dev,
                libxcb-randr0-dev,
@@ -14,15 +14,15 @@ Build-Depends: debhelper-compat (= 13),
                libxfixes-dev,
                libxi-dev,
                lxqt-menu-data (>= 2.1.0),
-               xserver-xorg-input-libinput-dev,
                qt6-base-private-dev (>= 6.6.0),
                qt6-svg-dev (>= 6.6.0),
+               xserver-xorg-input-libinput-dev,
                zlib1g-dev
 Standards-Version: 4.7.0
 Vcs-Browser: https://git.lubuntu.me/Lubuntu/lxqt-config-packaging
 Vcs-Git: https://git.lubuntu.me/Lubuntu/lxqt-config-packaging.git
-XS-Debian-Vcs-Browser: https://salsa.debian.org/lxqt-team/lxqt-config
-XS-Debian-Vcs-Git: https://salsa.debian.org/lxqt-team/lxqt-config.git
+Debian-Vcs-Browser: https://salsa.debian.org/lxqt-team/lxqt-config
+Debian-Vcs-Git: https://salsa.debian.org/lxqt-team/lxqt-config.git
 Rules-Requires-Root: no
 Homepage: https://github.com/lxqt/lxqt-config
 
@@ -56,4 +56,6 @@ Multi-Arch: foreign
 Section: localization
 Depends: qt6-translations-l10n, ${misc:Depends}
 Description: Language package for lxqt-config
+ The LXQt system settings center
+ .
  This package contains the l10n files needed by lxqt-config.
