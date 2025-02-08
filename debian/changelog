@@ -1,3 +1,9 @@
+lxqt-config (2.1.1-0ubuntu2) plucky; urgency=medium
+
+  * Fix manpage installation.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 08 Feb 2025 01:28:05 -0600
+
 lxqt-config (2.1.1-0ubuntu1) plucky; urgency=medium
 
   * New upstream release.
