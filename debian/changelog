@@ -1,3 +1,10 @@
+lxqt-config (2.1.1-0ubuntu3) plucky; urgency=medium
+
+  * Recommend iso-flags-svg to utilize the new flags feature in the locale
+    menu.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 15 Feb 2025 00:37:37 -0600
+
 lxqt-config (2.1.1-0ubuntu2) plucky; urgency=medium
 
   * Fix manpage installation.

@@ -30,6 +30,7 @@ Package: lxqt-config
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Recommends: galternatives,
+            iso-flags-svg,
             lxqt-config-l10n,
             lxqt-policykit,
             lxqt-powermanagement,
