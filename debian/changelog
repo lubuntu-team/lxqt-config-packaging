@@ -1,3 +1,9 @@
+lxqt-config (2.1.1-0ubuntu4) plucky; urgency=medium
+
+  * Update Standards-Version to 4.7.1, no changes needed.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 21 Feb 2025 16:48:27 -0600
+
 lxqt-config (2.1.1-0ubuntu3) plucky; urgency=medium
 
   * Recommend iso-flags-svg to utilize the new flags feature in the locale
