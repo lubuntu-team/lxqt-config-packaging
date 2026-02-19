@@ -3,9 +3,9 @@ Upstream-Name: lxqt-config
 Source: https://github.com/lxqt/lxqt-config
 
 Files: *
-Copyright: 2012-2025, LXQt team
+Copyright: 2012-2026, LXQt team
            2010-2012, Razor team
-           2013, Christian Surlykke
+           2013-2015, Christian Surlykke
            2014, Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
            2014, Luís Pereira <luis.artur.pereira@gmail.com>
 License: LGPL-2.1+
@@ -99,7 +99,7 @@ Files: lxqt-config-monitor/fastmenu.cpp
        lxqt-config-monitor/timeoutdialog.cpp
        lxqt-config-monitor/timeoutdialog.h
 Copyright: 2014-2016, 2019, P.L. Lucas <selairi@gmail.com>
-           2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+           2013-2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 License: GPL-2.0+
 
 Files: lxqt-config-brightness/brightnesssettings.*
@@ -124,8 +124,8 @@ Files: debian/*
 Copyright: 2014-2018 Alf Gaida <agaida@siduction.org>
            2015      Andrew Lee (李健秋) <ajqlee@debian.org>
            2023-2025 Lubuntu Developers <lubuntu-devel@lists.ubuntu.com>
-           2025      Aaron Rainbolt <arraybolt3@ubuntu.com>
            2025      ChangZhuo Chen (陳昌倬) <czchen@debian.org>
+           2025-2026 Aaron Rainbolt <arraybolt3@ubuntu.com>
 License: LGPL-2.1+
 
 License: LGPL-2.0+
