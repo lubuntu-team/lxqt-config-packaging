@@ -13,5 +13,7 @@ usr/share/applications/lxqt-config-input.desktop
 usr/share/applications/lxqt-config-locale.desktop
 usr/share/applications/lxqt-config-monitor.desktop
 usr/share/applications/lxqt-config.desktop
+usr/share/applications/lxqt-config-monitor-autostart.desktop
+usr/share/applications/lxqt-config-touchpad-autostart.desktop
 usr/share/icons/hicolor/48x48/apps/brightnesssettings.svg
 usr/share/lxqt/icons/monitor.svg
