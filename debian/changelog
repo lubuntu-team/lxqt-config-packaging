@@ -1,6 +1,7 @@
 lxqt-config (2.3.1-0ubuntu1) resolute; urgency=medium
 
   * New upstream release.
+    - Update build dependencies.
   * Update copyright file.
   * Update Standards-Version to 4.7.3, no changes needed.
   * Remove unnecessary Rules-Requires-Root.
