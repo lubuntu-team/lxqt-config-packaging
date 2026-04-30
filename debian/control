@@ -3,7 +3,6 @@ Maintainer: Lubuntu Developers <lubuntu-devel@lists.ubuntu.com>
 Original-Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debian.org>
 Uploaders: Simon Quigley <tsimonq2@ubuntu.com>
 Section: x11
-Priority: optional
 Build-Depends: debhelper-compat (= 13),
                libkf6windowsystem-dev (>= 6.0.0),
                libkscreen-dev (>= 6.0.0),
@@ -18,7 +17,7 @@ Build-Depends: debhelper-compat (= 13),
                qt6-svg-dev (>= 6.6.0),
                xserver-xorg-input-libinput-dev,
                zlib1g-dev
-Standards-Version: 4.7.3
+Standards-Version: 4.7.4
 Vcs-Browser: https://git.lubuntu.me/Lubuntu/lxqt-config-packaging
 Vcs-Git: https://git.lubuntu.me/Lubuntu/lxqt-config-packaging.git
 Debian-Vcs-Browser: https://salsa.debian.org/lxqt-team/lxqt-config
