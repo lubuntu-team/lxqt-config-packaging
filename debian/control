@@ -3,16 +3,16 @@ Maintainer: Lubuntu Developers <lubuntu-devel@lists.ubuntu.com>
 Original-Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debian.org>
 Uploaders: Simon Quigley <tsimonq2@ubuntu.com>
 Section: x11
-Build-Depends: debhelper-compat (= 13),
+Build-Depends: debhelper-compat (= 14),
                libkf6windowsystem-dev (>= 6.0.0),
                libkscreen-dev (>= 6.0.0),
-               liblxqt2-dev (>= 2.4.0),
+               liblxqt2-dev (>= 2.5.0),
                libx11-dev,
                libxcb-randr0-dev,
                libxcursor-dev,
                libxfixes-dev,
                libxi-dev,
-               lxqt-menu-data (>= 2.4.0),
+               lxqt-menu-data (>= 2.5.0),
                qt6-base-private-dev (>= 6.6.0),
                qt6-svg-dev (>= 6.6.0),
                xserver-xorg-input-libinput-dev,
@@ -26,7 +26,6 @@ Homepage: https://github.com/lxqt/lxqt-config
 
 Package: lxqt-config
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
 Recommends: galternatives,
             iso-flags-svg,
             lxqt-config-l10n,
@@ -53,7 +52,7 @@ Package: lxqt-config-l10n
 Architecture: all
 Multi-Arch: foreign
 Section: localization
-Depends: qt6-translations-l10n, ${misc:Depends}
+Depends: qt6-translations-l10n
 Description: Language package for lxqt-config
  The LXQt system settings center
  .
